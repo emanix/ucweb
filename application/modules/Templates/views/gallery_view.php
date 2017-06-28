@@ -1,7 +1,8 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Unity Chorale Nigeria |</title>
+<title>Unity Chorale Nigeria | <?php echo $header; ?></title>
 <!-- custom-theme -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -10,15 +11,10 @@
 		function hideURLbar(){ window.scrollTo(0,1); } </script>
 
 <!-- UCicon-->
-<link rel="icon" href="<?php echo base_url(); ?>assets/images/unity_choralelogo.ico" type="image/x-icon">
+<link rel="icon" href="<?php echo base_url(); ?>assets/images/unity_choralelogo.ico" type="image/x-icon">		
 <!-- //custom-theme -->
 <link href="<?php echo base_url(); ?>assets/dist_web/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
-<link href="<?php echo base_url(); ?>assets/dist_web/css/JiSlider.css" rel="stylesheet"> 
-<link rel="stylesheet" href="<?php echo base_url(); ?>assets/dist_web/css/flexslider.css" type="text/css" media="screen" property="" />
-
 <link href="<?php echo base_url(); ?>assets/dist_web/css/style.css" rel="stylesheet" type="text/css" media="all" />
-
-<link rel="stylesheet" href="<?php echo base_url(); ?>assets/dist_web/css/flexslider.css" type="text/css" media="screen" property="" />
 <!-- font-awesome-icons -->
 <link href="<?php echo base_url(); ?>assets/dist_web/css/font-awesome.css" rel="stylesheet"> 
 <!-- //font-awesome-icons -->
@@ -28,7 +24,7 @@
 	
 <body>
 <!-- banner -->
-<div class="main_section_agile">
+	<div class="main_section_agile">
 		<div class="w3_agile_banner_top">
 			<div class="agile_phone_mail">
 				<ul class="agile_forms">
@@ -57,9 +53,9 @@
 				<div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
 					<nav class="menu--iris">
 						<ul class="nav navbar-nav menu__list">
-							<li class="menu__item menu__item--current"><a href="<?php echo base_url(); ?>Home" class="menu__link">Home</a></li>
+							<li class="menu__item"><a href="<?php echo base_url(); ?>Home" class="menu__link">Home</a></li>
 							<li class="menu__item"><a href="<?php echo base_url(); ?>AboutUs" class="menu__link">About Us</a></li>
-							<li class="menu__item"><a href="<?php echo base_url(); ?>Gallery" class="menu__link">Gallery</a></li>
+							<li class="menu__item--current"><a href="<?php echo base_url(); ?>Gallery" class="menu__link">Gallery</a></li>
 							<li class="menu__item"><a href="<?php echo base_url(); ?>ContactUs" class="menu__link">Contact Us</a></li>
 						</ul>
 						<div class="w3_agileits_search">
@@ -69,27 +65,21 @@
 								<li><a href="#" class="w3_instagram"><i class="fa fa-instagram"></i></a></li>
 								<li><a href="#" class="w3_google"><i class="fa fa-google-plus"></i></a></li>
 							</ul>
-						</div>
 					</nav>
 				</div>
 			</nav>
 		</div>
 </div>
-<!-- banner -->
-	<div class="banner-silder">
-	<!--Slider delay time is set at 6 seconds-->
-		<div id="JiSlider" class="jislider">
-			<ul>
-				<?php echo $bannerSlider; ?>
-			</ul>
+	<div class="banner1">
+		<div class="w3_agileits_service_banner_info">
+			<h2><?php echo $header; ?></h2>
 		</div>
-      </div>
-
+	</div>
 <!-- //banner -->
 	<!-- Modal1 -->
 	<div class="modal fade" id="myModal2" tabindex="-1" role="dialog">
 		<div class="modal-dialog">
-<!-- Modal content-->
+	<!-- Modal content-->
 			<div class="modal-content">
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -105,109 +95,118 @@
 			</div>
 		</div>
 	</div>
-<!-- //Modal1 -->	
-<!-- Modal2 -->
+	<!-- //Modal1 -->	
+	<!-- Modal2 -->
 	<div class="modal fade" id="myModal3" tabindex="-1" role="dialog">
 		<div class="modal-dialog">
-<!-- Modal content-->
+	<!-- Modal content-->
 			<div class="modal-content">
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal">&times;</button>
-																	
 					<div class="signin-form profile">
 						<h3 class="agileinfo_sign">Sign Up</h3>	
-						<div class="login-form">
-						</div>
-						<p><a href="#"> By clicking register, I agree to your terms</a></p>
+							<div class="login-form">
+							</div>
+							<p><a href="#"> By clicking register, I agree to your terms</a></p>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-<!-- //Modal2 -->	
+	<!-- //Modal2 -->	
 
-<!-- bootstrap-pop-up -->
-	<div class="modal video-modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModal">
-		<div class="modal-dialog" role="document">
-			<div class="modal-content">
-				<div class="modal-header">
-				
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>						
-				</div>
-				<section>
-					<div class="modal-body">
-						<h5>Mastering</h5>
-						<img src="images/2.jpg" alt=" " class="img-responsive" />
-						<p>Ut enim ad minima veniam, quis nostrum 
-							exercitationem ullam corporis suscipit laboriosam, 
-							nisi ut aliquid ex ea commodi consequatur? Quis autem 
-							vel eum iure reprehenderit qui in ea voluptate velit 
-							e.
-							<i>" Quis autem vel eum iure reprehenderit qui in ea voluptate velit 
-								esse quam nihil molestiae consequatur.</i></p>
-					</div>
-				</section>
-			</div>
-		</div>
-	</div>
-<!-- //bootstrap-pop-up -->
-<!-- banner-bottom -->
-	<div class="blog" id="blog">
-		<div class="container">
-		
-		<h3 class="w3l_header w3_agileits_header">Welcome</h3>
-			<div class="agile_inner_w3ls-grids">
-	
-				<div class="w3-agile-post-grids">
-					<div class="col-sm-7 w3-agile-post-info">
-						<?php echo $welcome_message; ?>
-					</div>
-					<div class="col-sm-5 w3-agile-post-img w3-agile-post-img1" style="/*background: url(<?php echo base_url(); ?>assets/dist_web/images/ucoregun.jpg);*/">
-						<iframe width="420" height="315" src="https://www.youtube.com/embed/t_iPSXNtX6M" frameborder="0" allowfullscreen></iframe>
-						<br><br><br><br>
-						<div class="eventtb">
-							<h2 class="w3l_header w3_agileits_header">Upcoming Events</h2><br>
-							<table class="table">
-								<tbody>
-									<?php echo $events_table; ?>
-								</tbody>
-							</table>
+	<div class="contact">
+  	<div class="container">
+	<h3 class="w3l_header w3_agileits_header">Our <span>Gallery</span></h3>
+			<div class="inner_w3l_agile_grids-gal">
+				<?php echo $gallery; ?>
+				<!--<div class="col-md-4 gallery-grid gallery1">
+					<a href="<?php echo base_url(); ?>assets/dist_web/images/1.jpg" class="swipebox"><img src="<?php echo base_url(); ?>assets/dist_web/images/1.jpg" class="img-responsive" alt="/">
+						<div class="textbox">
+							<br><br><br><br><br><br>
+							<p>jfsajfsjf;lk;lfl;sdfl;sd
+							jf;lksjkfl;sdakf
+							kljf;ldksjf;l</p>
+							
 						</div>
-					</div>
+					</a>
 				</div>
+				<div class="col-md-4 gallery-grid gallery1">
+					<a href="<?php echo base_url(); ?>assets/dist_web/images/2.jpg" class="swipebox"><img src="<?php echo base_url(); ?>assets/dist_web/images/2.jpg" class="img-responsive" alt="/">
+						<div class="textbox">
+						<h4>Mastering</h4>
+						<p><i class="fa fa-graduation-cap" aria-hidden="true"></i></p>
+						
+						</div>
+					</a>
+				</div>
+				<div class="col-md-4 gallery-grid gallery1">
+					<a href="<?php echo base_url(); ?>assets/dist_web/images/3.jpg" class="swipebox"><img src="<?php echo base_url(); ?>assets/dist_web/images/3.jpg" class="img-responsive" alt="/">
+						<div class="textbox">
+						<h4>Mastering</h4>
+							<p><i class="fa fa-graduation-cap" aria-hidden="true"></i></p>
+							
+						</div>
+					</a>
+				</div>
+				<div class="col-md-4 gallery-grid gallery1">
+					<a href="<?php echo base_url(); ?>assets/dist_web/images/4.jpg" class="swipebox"><img src="<?php echo base_url(); ?>assets/dist_web/images/4.jpg" class="img-responsive" alt="/">
+						<div class="textbox">
+						<h4>Mastering</h4>
+							<p><i class="fa fa-graduation-cap" aria-hidden="true"></i></p>
+							
+						</div>
+					</a>
+				</div>
+				<div class="col-md-4 gallery-grid gallery1">
+					<a href="<?php echo base_url(); ?>assets/dist_web/images/5.jpg" class="swipebox"><img src="<?php echo base_url(); ?>assets/dist_web/images/5.jpg" class="img-responsive" alt="/">
+						<div class="textbox">
+						<h4>Mastering</h4>
+							<p><i class="fa fa-graduation-cap" aria-hidden="true"></i></p>
+							
+						</div>
+					</a>
+				</div>
+				<div class="col-md-4 gallery-grid gallery1">
+					<a href="<?php echo base_url(); ?>assets/dist_web/images/6.jpg" class="swipebox"><img src="<?php echo base_url(); ?>assets/dist_web/images/6.jpg" class="img-responsive" alt="/">
+						<div class="textbox">
+						<h4>Mastering</h4>
+							<p><i class="fa fa-graduation-cap" aria-hidden="true"></i></p>
+					   </div>
+				   </a>
+				</div>
+				<div class="col-md-4 gallery-grid gallery1">
+					<a href="<?php echo base_url(); ?>assets/dist_web/images/7.jpg" class="swipebox"><img src="<?php echo base_url(); ?>assets/dist_web/images/7.jpg" class="img-responsive" alt="/">
+						<div class="textbox">
+						<h4>Mastering</h4>
+							<p><i class="fa fa-graduation-cap" aria-hidden="true"></i></p>
+					   </div>
+				   </a>
+				</div>
+				<div class="col-md-4 gallery-grid gallery1">
+					<a href="<?php echo base_url(); ?>assets/dist_web/images/8.jpg" class="swipebox"><img src="<?php echo base_url(); ?>assets/dist_web/images/8.jpg" class="img-responsive" alt="/">
+						<div class="textbox">
+						<h4>Mastering</h4>
+							<p><i class="fa fa-graduation-cap" aria-hidden="true"></i></p>
+					   </div>
+				   </a>
+				</div>
+					<div class="col-md-4 gallery-grid gallery1">
+					<a href="<?php echo base_url(); ?>assets/dist_web/images/2.jpg" class="swipebox"><img src="<?php echo base_url(); ?>assets/dist_web/images/2.jpg" class="img-responsive" alt="/">
+						<div class="textbox">
+						<h4>Mastering</h4>
+							<p><i class="fa fa-graduation-cap" aria-hidden="true"></i></p>
+							
+						</div>
+					</a>
+				</div>-->
+			
 				<div class="clearfix"> </div>
 			</div>
-		</div>
-	</div>
-<!-- //banner-bottom -->
+		</div>	
+	</div>	
+	<!--//gallery-->
 
-	<!-- services -->
-	<div class="services" id="services">
-		<div class="container">
-		<h3 class="w3l_header w3_agileits_header two">Our <span>Services</span></h3>
-			<div class="agile_inner_w3ls-grids two">
-				<?php echo $services; ?>
-				<div class="clearfix"> </div>
-			</div>
-		</div>
-	</div>
-	<!-- //services -->
-<!-- 		
-	<div class="testimonials">
-		<div class="col-md-6 w3layouts_event_left">
-			<img src="<?php echo base_url(); ?>assets/dist_web/images/ghana.jpg" alt="UnityChorale" class="img-responsive" />
-		</div>
-		<div class="col-md-6 w3layouts_event_right">
-			<h2 class="w3l_header w3_agileits_header">Upcoming Events</h2><br>
-			<table class="table">
-				<tbody>
-					<?php echo $events_table; ?>
-				</tbody>
-			</table>
-		</div>
-		<div class="clearfix"> </div>
-	</div>
-  -->	
 
 <!-- footer -->
 	<div class="footer">
@@ -228,9 +227,9 @@
 					<input type="submit" value="">
 				</form>
 				<ul class="w3l_footer_nav">
-					<li><a href="<?php echo base_url(); ?>Home" class="active">Home</a></li>
+					<li><a href="<?php echo base_url(); ?>Home">Home</a></li>
 					<li><a href="<?php echo base_url(); ?>AboutUs">About Us</a></li>
-					<li><a href="<?php echo base_url(); ?>Gallery">Gallery</a></li>
+					<li><a class="active" href="<?php echo base_url(); ?>Gallery">Gallery</a></li>
 					<li><a href="<?php echo base_url(); ?>ContactUs">Contact Us</a></li>
 				</ul>
 				<p>© 2017 UnityChorale. All Rights Reserved | Design by <i>emanixWEB Consult.</i></p>
@@ -240,52 +239,10 @@
 	</div>
 </div>
 <!-- //footer -->
-<!-- start-smoth-scrolling -->
 <!-- js -->
 <script type="text/javascript" src="<?php echo base_url(); ?>assets/dist_web/js/jquery-2.1.4.min.js"></script>
 <!-- //js -->
-<script src="<?php echo base_url(); ?>assets/dist_web/js/JiSlider.js"></script>
-<script>
-			$(window).load(function () {
-				$('#JiSlider').JiSlider({color: '#fff', start: 3, reverse: true}).addClass('ff')
-			})
-		</script><script type="text/javascript">
-
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-36251023-1']);
-  _gaq.push(['_setDomainName', 'jqueryscript.net']);
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-
-</script>
-<!-- stats -->
-	<script src="<?php echo base_url(); ?>assets/dist_web/js/jquery.waypoints.min.js"></script>
-	<script src="<?php echo base_url(); ?>assets/dist_web/js/jquery.countup.js"></script>
-		<script>
-			$('.counter').countUp();
-		</script>
-<!-- //stats -->
-<!-- //footer -->
-<!-- flexSlider -->
-	<script defer src="<?php echo base_url(); ?>assets/dist_web/js/jquery.flexslider.js"></script>
-	<script type="text/javascript">
-		$(window).load(function(){
-		  $('.flexslider').flexslider({
-			animation: "slide",
-			start: function(slider){
-			  $('body').removeClass('loading');
-			}
-		  });
-		});
-  </script>
-<!-- //flexSlider -->
-
-
+<!-- start-smoth-scrolling -->
 <script type="text/javascript" src="<?php echo base_url(); ?>assets/dist_web/js/move-top.js"></script>
 <script type="text/javascript" src="<?php echo base_url(); ?>assets/dist_web/js/easing.js"></script>
 <script type="text/javascript">
@@ -296,7 +253,16 @@
 		});
 	});
 </script>
-<!-- start-smoth-scrolling -->
+<!-- start-smooth-scrolling -->
+<link rel="stylesheet" href="<?php echo base_url(); ?>assets/dist_web/css/swipebox.css">
+				<script src="<?php echo base_url(); ?>assets/dist_web/js/jquery.swipebox.min.js"></script> 
+					<script type="text/javascript">
+						jQuery(function($) {
+							$(".swipebox").swipebox();
+						});
+					</script>
+
+
 <!-- for bootstrap working -->
 	<script src="<?php echo base_url(); ?>assets/dist_web/js/bootstrap.js"></script>
 <!-- //for bootstrap working -->

@@ -55,15 +55,8 @@
 						<ul class="nav navbar-nav menu__list">
 							<li class="menu__item menu__item"><a href="<?php echo base_url(); ?>Home" class="menu__link">Home</a></li>
 							<li class="menu__item--current"><a href="<?php echo base_url(); ?>AboutUs" class="menu__link">About Us</a></li>
-							<li class="menu__item"><a href="gallery.html" class="menu__link">Gallery</a></li>
-							<li class="dropdown menu__item">
-								<a href="#" class="dropdown-toggle menu__link" data-toggle="dropdown">Short Codes <b class="caret"></b></a>
-								<ul class="dropdown-menu agile_short_dropdown">
-									<li><a href="icons.html">Icons</a></li>
-									<li><a href="typography.html">Typography</a></li>
-								</ul>
-							</li>
-							<li class="menu__item"><a href="mail.html" class="menu__link">Mail Us</a></li>
+							<li class="menu__item"><a href="<?php echo base_url(); ?>Gallery" class="menu__link">Gallery</a></li>
+							<li class="menu__item"><a href="<?php echo base_url(); ?>ContactUs" class="menu__link">Contact Us</a></li>
 						</ul>
 						<div class="w3_agileits_search">
 							<ul class="social_agileinfo">
@@ -166,11 +159,10 @@
 					<input type="submit" value="">
 				</form>
 				<ul class="w3l_footer_nav">
-					<li><a href="index.html">Home</a></li>
-					<li><a class="active" href="services.html">Services</a></li>
-					<li><a href="gallery.html">Gallery</a></li>
-					<li><a href="icons.html">Web Icons</a></li>
-					<li><a href="mail.html">Mail Us</a></li>
+					<li><a href="<?php echo base_url(); ?>Home">Home</a></li>
+					<li><a class="active" href="<?php echo base_url(); ?>AboutUs">About Us</a></li>
+					<li><a href="<?php echo base_url(); ?>Gallery">Gallery</a></li>
+					<li><a href="<?php echo base_url(); ?>ContactUs">Contact Us</a></li>
 				</ul>
 				<p>© 2017 UnityChorale. All Rights Reserved | Design by <i>emanixWEB Consult.</i></p>
 			</div>

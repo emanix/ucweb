@@ -70,8 +70,7 @@ class AboutUs extends MY_Controller{
         $facebook = $this->input->post('facebook');
         $twitter = $this->input->post('twitter');
         
-         //posts banner 
-        
+                 
         $files = $_FILES;
         if(!file_exists("./assets/dist_web/images/")) {
           mkdir("./assets/dist_web/images/", 0777, true);
@@ -80,14 +79,7 @@ class AboutUs extends MY_Controller{
         $this->upload->initialize($config);
         if($this->upload->do_upload('team')){
             $file_path = $config['upload_path'].$id.$this->upload->data('file_ext');
-            /*$file_thumb_path = $config['upload_path'].$id.'_thumb'.$this->upload->data('file_ext');
-
-            $config_thumb = $this->set_banner_thumb_option($file_path);
-
-            $this->load->library('image_lib');
-            $this->image_lib->initialize($config_thumb);
-
-            $this->image_lib->resize();*/
+            
             $image = array('name' => $name, 
               'google' => $google,
               'facebook' => $facebook,
@@ -98,7 +90,13 @@ class AboutUs extends MY_Controller{
             $this->M_AboutUs->update_team($id, $image);
         }
         else{
-          $this->M_AboutUs->update_team_nopic($id);
+          $image = array('name' => $name, 
+              'google' => $google,
+              'facebook' => $facebook,
+              'twitter' => $twitter
+            );
+
+            $this->M_AboutUs->update_team($id, $image);
         }
         $this->session->set_flashdata('success', 'Team uploaded successfully');
       }
@@ -131,9 +129,9 @@ class AboutUs extends MY_Controller{
       foreach ($team as $key => $value) {
         $team_table .="<tr>";
         $team_table .="<td>{$incrementer}</td>";
-                $image = base_url().ltrim($value->image_path, '.');
-                $team_table .="<td>{$value->office}</td>";
-                $team_table .="<td>{$value->name}</td>";
+        $image = base_url().ltrim($value->image_path, '.');
+        $team_table .="<td>{$value->office}</td>";
+        $team_table .="<td>{$value->name}</td>";
         $team_table .="<td><img src='{$image}' width='53' height='81'/></td>";
         $team_table .="<td><a href='".base_url()."AboutUs/edit_team/{$value->teamid}'><i>Edit</i></a></td>";
         $incrementer++;
@@ -160,9 +158,9 @@ class AboutUs extends MY_Controller{
           $teams .= "<p>{$value->office}</p>";
           $teams .= "<div class='w3social-icons'>";
           $teams .= "<ul>";
-          $teams .= "<li><a href='{$value->google}'><i class='fa fa-google-plus'></i></a></li>";
-          $teams .= "<li><a href='{$value->facebook}'><i class='fa fa-facebook'></i> </a></li>";
-          $teams .= "<li><a href='{$value->twitter}'><i class='fa fa-twitter'></i> </a></li>";
+          $teams .= "<li><a href='{$value->google}' target='__blank'><i class='fa fa-google-plus'></i></a></li>";
+          $teams .= "<li><a href='{$value->facebook}' target='__blank'><i class='fa fa-facebook'></i> </a></li>";
+          $teams .= "<li><a href='{$value->twitter}' target='__blank'><i class='fa fa-twitter'></i> </a></li>";
           $teams .= "</ul>";
           $teams .= "</div>";
           $teams .= "</div>";

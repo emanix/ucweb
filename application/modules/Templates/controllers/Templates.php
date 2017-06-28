@@ -37,4 +37,10 @@ class Templates extends MY_Controller{
 
         $this->load->view('about_view', $data);
     }
+
+    function call_gallery_template($data = NULL){
+        //call about view template
+
+        $this->load->view('gallery_view', $data);
+    }
  }

@@ -165,7 +165,11 @@ class Admin extends MY_Controller{
                         $this->M_Admin->update_banner($id, $image);
                     }
                     else{
-                        $this->M_Admin->update_banner_nopic($id);
+                        $image = array('title' => $banner_title, 
+                            'banner_info' => $banner_info
+                        );
+
+                        $this->M_Admin->update_banner($id, $image);
                     }
                     $this->session->set_flashdata('success', 'Banner updated successfully');
                 }

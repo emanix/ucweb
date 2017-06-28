@@ -167,6 +167,20 @@
                             <a href="<?php echo base_url(); ?>AboutUs/view_team"><i class="material-icons">view_list</i><span>View Team</span></a>
                           </li>
                         </ul> 
+                     </li>
+                     <li>
+                        <a href="javascript:void(0);" class="menu-toggle">
+                          <i class="material-icons">create</i>
+                          <span>Manage Gallery</span>
+                        </a>
+                        <ul class="ml-menu">
+                          <li>
+                            <a href="<?php echo base_url(); ?>Gallery/addPhotoView"><i class="material-icons">add_box</i><span>Add Photo</span></a>
+                          </li>
+                          <li>
+                            <a href="<?php echo base_url(); ?>Gallery/viewGallery"><i class="material-icons">view_list</i><span>View Gallery</span></a>
+                          </li>
+                        </ul> 
                      </li>       
                 </ul>
             </div>

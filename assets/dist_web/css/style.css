@@ -472,10 +472,12 @@ p.w3l_sub_para_agile {
 /*-- team --*/
 .team-grids{
 	position:relative;
+    border-radius: 40px;
 	overflow:hidden;
 } 
 .team-grids img {
     width: 100%;
+    border-radius: 40px;
 }
 .team-grids h4 {
     font-size: 1.4em;
@@ -491,6 +493,7 @@ p.w3l_sub_para_agile {
     position: absolute;
     top: -50%;
     padding: 1.5em 2em 0;
+    border-radius: 40px;
     text-align: center;
     width: 90%;
     -webkit-transition: .5s all;
@@ -1291,7 +1294,11 @@ button.close {
   padding: 0;
 }
 .gallery1 {
-position:relative;
+   position:relative;
+   padding-left: 0.5em;
+   padding-right: 0.5em;
+   padding-top: 0.5em;
+   padding-bottom: 0.5em;
 }
 .gallery1 .textbox {
 	width:100%;
@@ -1325,9 +1332,9 @@ text-align:center;
     letter-spacing: 1px;
 }
 .textbox p {
-     font-size: 26px !important;
+     font-size: 15px !important;
     color: #fff;
-    background: rgba(0, 0, 0, 0.83);
+    /*background: rgba(0, 0, 0, 0.83);*/
     margin: 6px 0 0 0!important;
     padding: 3px 0;
 }
