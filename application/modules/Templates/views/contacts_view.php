@@ -11,10 +11,14 @@
 		function hideURLbar(){ window.scrollTo(0,1); } </script>
 
 <!-- UCicon-->
-<link rel="icon" href="<?php echo base_url(); ?>assets/images/unity_choralelogo.ico" type="image/x-icon">		
+<link rel="icon" href="<?php echo base_url(); ?>assets/images/unity_choralelogo.ico" type="image/x-icon">
 <!-- //custom-theme -->
 <link href="<?php echo base_url(); ?>assets/dist_web/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
 <link href="<?php echo base_url(); ?>assets/dist_web/css/style.css" rel="stylesheet" type="text/css" media="all" />
+<!-- js -->
+<script type="text/javascript" src="<?php echo base_url(); ?>assets/dist_web/js/jquery-2.1.4.min.js"></script>
+<!-- //js -->
+<link rel="stylesheet" href="<?php echo base_url(); ?>assets/dist_web/css/colorbox.css" />
 <!-- font-awesome-icons -->
 <link href="<?php echo base_url(); ?>assets/dist_web/css/font-awesome.css" rel="stylesheet"> 
 <!-- //font-awesome-icons -->
@@ -24,7 +28,7 @@
 	
 <body>
 <!-- banner -->
-	<div class="main_section_agile">
+<div class="main_section_agile">
 		<div class="w3_agile_banner_top">
 			<div class="agile_phone_mail">
 				<ul class="agile_forms">
@@ -53,10 +57,10 @@
 				<div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
 					<nav class="menu--iris">
 						<ul class="nav navbar-nav menu__list">
-							<li class="menu__item"><a href="<?php echo base_url(); ?>Home" class="menu__link">Home</a></li>
+							<li class="menu__item menu__item"><a href="<?php echo base_url(); ?>Home" class="menu__link">Home</a></li>
 							<li class="menu__item"><a href="<?php echo base_url(); ?>AboutUs" class="menu__link">About Us</a></li>
-							<li class="menu__item--current"><a href="<?php echo base_url(); ?>Gallery" class="menu__link">Gallery</a></li>
-							<li class="menu__item"><a href="<?php echo base_url(); ?>ContactUs" class="menu__link">Contact Us</a></li>
+							<li class="menu__item"><a href="<?php echo base_url(); ?>Gallery" class="menu__link">Gallery</a></li>
+							<li class="menu__item--current"><a href="<?php echo base_url(); ?>ContactUs" class="menu__link">Contact Us</a></li>
 						</ul>
 						<div class="w3_agileits_search">
 							<ul class="social_agileinfo">
@@ -65,6 +69,7 @@
 								<li><a href="#" class="w3_instagram"><i class="fa fa-instagram"></i></a></li>
 								<li><a href="#" class="w3_google"><i class="fa fa-google-plus"></i></a></li>
 							</ul>
+						</div>
 					</nav>
 				</div>
 			</nav>
@@ -75,6 +80,7 @@
 			<h2><?php echo $header; ?></h2>
 		</div>
 	</div>
+
 <!-- //banner -->
 	<!-- Modal1 -->
 	<div class="modal fade" id="myModal2" tabindex="-1" role="dialog">
@@ -110,16 +116,16 @@
 					<button type="button" class="close" data-dismiss="modal">&times;</button>
 					<div class="signin-form profile">
 						<h3 class="agileinfo_sign">Sign Up</h3>	
-							<div class="login-form">
-								<form action="#" method="post">
-									<input type="text" name="name" placeholder="Username" required="">
-									<input type="email" name="email" placeholder="Email" required="">
-									<input type="password" name="password" placeholder="Password" required="">
-									<input type="password" name="password" placeholder="Confirm Password" required="">
-									<input type="submit" value="Sign Up">
-								</form>
-							</div>
-							<p><a href="#"> By clicking register, I agree to your terms</a></p>
+						<div class="login-form">
+							<form action="#" method="post">
+								<input type="text" name="name" placeholder="Username" required="">
+								<input type="email" name="email" placeholder="Email" required="">
+								<input type="password" name="password" placeholder="Password" required="">
+								<input type="password" name="password" placeholder="Confirm Password" required="">
+								<input type="submit" value="Sign Up">
+							</form>
+						</div>
+						<p><a href="#"> By clicking register, I agree to your terms</a></p>
 					</div>
 				</div>
 			</div>
@@ -127,99 +133,78 @@
 	</div>
 	<!-- //Modal2 -->	
 
+<!-- mail -->
 	<div class="contact">
-  	<div class="container">
-	<h3 class="w3l_header w3_agileits_header">Our <span>Gallery</span></h3>
-			<div class="inner_w3l_agile_grids-gal">
-				<?php echo $gallery; ?>
-				<!--<div class="col-md-4 gallery-grid gallery1">
-					<a href="<?php echo base_url(); ?>assets/dist_web/images/1.jpg" class="swipebox"><img src="<?php echo base_url(); ?>assets/dist_web/images/1.jpg" class="img-responsive" alt="/">
-						<div class="textbox">
-							<br><br><br><br><br><br>
-							<p>jfsajfsjf;lk;lfl;sdfl;sd
-							jf;lksjkfl;sdakf
-							kljf;ldksjf;l</p>
-							
-						</div>
-					</a>
+		<div class="container">
+			<h3 class="w3l_header w3_agileits_header1">Get in <span>Touch</span></h3>
+			<div class="w3layouts_mail_grid">
+				<div class="col-md-4 w3layouts_mail_grid_left">
+					<div class="w3layouts_mail_grid_left1 hvr-radial-out">
+						<span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
+					</div>
+					<div class="w3layouts_mail_grid_left2">
+						<h3>Mail Us</h3>
+						<a href="mailto:info@unitychoraleng.org">info@unitychoraleng.org</a>
+					</div>
 				</div>
-				<div class="col-md-4 gallery-grid gallery1">
-					<a href="<?php echo base_url(); ?>assets/dist_web/images/2.jpg" class="swipebox"><img src="<?php echo base_url(); ?>assets/dist_web/images/2.jpg" class="img-responsive" alt="/">
-						<div class="textbox">
-						<h4>Mastering</h4>
-						<p><i class="fa fa-graduation-cap" aria-hidden="true"></i></p>
-						
-						</div>
-					</a>
+				<div class="col-md-4 w3layouts_mail_grid_left">
+					<div class="w3layouts_mail_grid_left1 hvr-radial-out">
+						<span class="glyphicon glyphicon-home" aria-hidden="true"></span>
+					</div>
+					<div class="w3layouts_mail_grid_left2">
+						<h3>Address</h3>
+						<p>Babcock University, Ilisan Remo, Ogun State. Nigeria</p>
+					</div>
 				</div>
-				<div class="col-md-4 gallery-grid gallery1">
-					<a href="<?php echo base_url(); ?>assets/dist_web/images/3.jpg" class="swipebox"><img src="<?php echo base_url(); ?>assets/dist_web/images/3.jpg" class="img-responsive" alt="/">
-						<div class="textbox">
-						<h4>Mastering</h4>
-							<p><i class="fa fa-graduation-cap" aria-hidden="true"></i></p>
-							
-						</div>
-					</a>
+				<div class="col-md-4 w3layouts_mail_grid_left">
+					<div class="w3layouts_mail_grid_left1 hvr-radial-out">
+						<span class="glyphicon glyphicon-earphone" aria-hidden="true"></span>
+					</div>
+					<div class="w3layouts_mail_grid_left2">
+						<h3>Phone</h3>
+						<p>+234 706 463 7363, +234 703 084 6612</p>
+					</div>
 				</div>
-				<div class="col-md-4 gallery-grid gallery1">
-					<a href="<?php echo base_url(); ?>assets/dist_web/images/4.jpg" class="swipebox"><img src="<?php echo base_url(); ?>assets/dist_web/images/4.jpg" class="img-responsive" alt="/">
-						<div class="textbox">
-						<h4>Mastering</h4>
-							<p><i class="fa fa-graduation-cap" aria-hidden="true"></i></p>
-							
-						</div>
-					</a>
+				<div class="clearfix"><?php if($response != ""){ ?><br><center><h3 style="color: green"><?php echo $response; ?></h3></center><?php } ?></div>
+			</div>
+		</div>
+	</div>
+	<div class="w3_agile_map">
+		<iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d50416.99204102258!2d144.93732617279937!3d-37.83543431360044!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1saustralia+real+estate!5e0!3m2!1sen!2sin!4v1470915593791" style="border:0"></iframe>
+	</div>
+	<div class="contact">
+		<div class="container">
+			<h3 class="w3l_header w3_agileits_header1">Contact <span>Info</span></h3>
+			<div class="w3layouts_mail_grid">
+					<div class="agileits_mail_grid_right agileits_w3layouts_mail_grid_right">
+					<div class="agileits_mail_grid_right1 agile_mail_grid_right1">
+						<form action="<?php echo base_url(); ?>ContactUs/addMessage" method="post">
+							<span>
+								<i>Name</i>
+								<input type="text" name="Name" placeholder=" " required="">
+							</span>
+							<span>
+								<i>Email</i>
+								<input type="email" name="Email" placeholder=" " required="">
+							</span>
+							<span>
+								<i>Subject</i>
+								<input type="text" name="Subject" placeholder=" " required="">
+							</span>
+							<span>
+								<i>Message</i>
+								<textarea name="Message" placeholder=" " required=""></textarea>
+
+							</span>
+							<input type="submit" value="SUBMIT">
+						</form>
+					</div>
 				</div>
-				<div class="col-md-4 gallery-grid gallery1">
-					<a href="<?php echo base_url(); ?>assets/dist_web/images/5.jpg" class="swipebox"><img src="<?php echo base_url(); ?>assets/dist_web/images/5.jpg" class="img-responsive" alt="/">
-						<div class="textbox">
-						<h4>Mastering</h4>
-							<p><i class="fa fa-graduation-cap" aria-hidden="true"></i></p>
-							
-						</div>
-					</a>
-				</div>
-				<div class="col-md-4 gallery-grid gallery1">
-					<a href="<?php echo base_url(); ?>assets/dist_web/images/6.jpg" class="swipebox"><img src="<?php echo base_url(); ?>assets/dist_web/images/6.jpg" class="img-responsive" alt="/">
-						<div class="textbox">
-						<h4>Mastering</h4>
-							<p><i class="fa fa-graduation-cap" aria-hidden="true"></i></p>
-					   </div>
-				   </a>
-				</div>
-				<div class="col-md-4 gallery-grid gallery1">
-					<a href="<?php echo base_url(); ?>assets/dist_web/images/7.jpg" class="swipebox"><img src="<?php echo base_url(); ?>assets/dist_web/images/7.jpg" class="img-responsive" alt="/">
-						<div class="textbox">
-						<h4>Mastering</h4>
-							<p><i class="fa fa-graduation-cap" aria-hidden="true"></i></p>
-					   </div>
-				   </a>
-				</div>
-				<div class="col-md-4 gallery-grid gallery1">
-					<a href="<?php echo base_url(); ?>assets/dist_web/images/8.jpg" class="swipebox"><img src="<?php echo base_url(); ?>assets/dist_web/images/8.jpg" class="img-responsive" alt="/">
-						<div class="textbox">
-						<h4>Mastering</h4>
-							<p><i class="fa fa-graduation-cap" aria-hidden="true"></i></p>
-					   </div>
-				   </a>
-				</div>
-					<div class="col-md-4 gallery-grid gallery1">
-					<a href="<?php echo base_url(); ?>assets/dist_web/images/2.jpg" class="swipebox"><img src="<?php echo base_url(); ?>assets/dist_web/images/2.jpg" class="img-responsive" alt="/">
-						<div class="textbox">
-						<h4>Mastering</h4>
-							<p><i class="fa fa-graduation-cap" aria-hidden="true"></i></p>
-							
-						</div>
-					</a>
-				</div>-->
-			
 				<div class="clearfix"> </div>
 			</div>
-		</div>	
-	</div>	
-	<!--//gallery-->
-
-
+		</div>
+	</div>
+<!-- //mail -->
 <!-- footer -->
 	<div class="footer">
 	<div class="f-bg-w3l">
@@ -240,20 +225,17 @@
 				</form>
 				<ul class="w3l_footer_nav">
 					<li><a href="<?php echo base_url(); ?>Home">Home</a></li>
-					<li><a href="<?php echo base_url(); ?>AboutUs">About Us</a></li>
-					<li><a class="active" href="<?php echo base_url(); ?>Gallery">Gallery</a></li>
+					<li><a class="active" href="<?php echo base_url(); ?>AboutUs">About Us</a></li>
+					<li><a href="<?php echo base_url(); ?>Gallery">Gallery</a></li>
 					<li><a href="<?php echo base_url(); ?>ContactUs">Contact Us</a></li>
 				</ul>
-				<p>© 2017 UnityChorale. All Rights Reserved | Design by <i>emanixWEB Consult.</i></p>
+				<p>>© 2017 UnityChorale. All Rights Reserved | Design by <i>emanixWEB Consult.</i></p>
 			</div>
 			<div class="clearfix"> </div>
 		</div>
 	</div>
 </div>
 <!-- //footer -->
-<!-- js -->
-<script type="text/javascript" src="<?php echo base_url(); ?>assets/dist_web/js/jquery-2.1.4.min.js"></script>
-<!-- //js -->
 <!-- start-smoth-scrolling -->
 <script type="text/javascript" src="<?php echo base_url(); ?>assets/dist_web/js/move-top.js"></script>
 <script type="text/javascript" src="<?php echo base_url(); ?>assets/dist_web/js/easing.js"></script>
@@ -265,16 +247,7 @@
 		});
 	});
 </script>
-<!-- start-smooth-scrolling -->
-<link rel="stylesheet" href="<?php echo base_url(); ?>assets/dist_web/css/swipebox.css">
-				<script src="<?php echo base_url(); ?>assets/dist_web/js/jquery.swipebox.min.js"></script> 
-					<script type="text/javascript">
-						jQuery(function($) {
-							$(".swipebox").swipebox();
-						});
-					</script>
-
-
+<!-- start-smoth-scrolling -->
 <!-- for bootstrap working -->
 	<script src="<?php echo base_url(); ?>assets/dist_web/js/bootstrap.js"></script>
 <!-- //for bootstrap working -->

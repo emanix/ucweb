@@ -96,8 +96,13 @@
 					<div class="signin-form profile">
 						<h3 class="agileinfo_sign">Sign In</h3>	
 						<div class="login-form">
-						</div>
-						<div class="login-social-grids">
+							<form action="#" method="post">
+								<input type="text" name="email" placeholder="E-mail" required="">
+								<input type="password" name="password" placeholder="Password" required="">
+								<div class="tp">
+									<input type="submit" value="Sign In">
+								</div>
+							</form>
 						</div>
 						<p><a href="#" data-toggle="modal" data-target="#myModal3" > Don't have an account?</a></p>
 					</div>
@@ -117,6 +122,13 @@
 					<div class="signin-form profile">
 						<h3 class="agileinfo_sign">Sign Up</h3>	
 						<div class="login-form">
+							<form action="#" method="post">
+								<input type="text" name="name" placeholder="Username" required="">
+								<input type="email" name="email" placeholder="Email" required="">
+								<input type="password" name="password" placeholder="Password" required="">
+								<input type="password" name="password" placeholder="Confirm Password" required="">
+								<input type="submit" value="Sign Up">
+							</form>
 						</div>
 						<p><a href="#"> By clicking register, I agree to your terms</a></p>
 					</div>
