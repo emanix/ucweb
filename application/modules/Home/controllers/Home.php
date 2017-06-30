@@ -5,7 +5,7 @@ class Home extends MY_Controller{
     function __construct()
     {
         parent::__construct();
-        $this->load->module(['Templates']);
+        $this->load->module(['Templates', 'ContactUs']);
         $this->load->model(['M_Home', 'M_Events']);
         
     }
@@ -46,7 +46,8 @@ class Home extends MY_Controller{
       if(count($events) > 0){
         foreach ($events as $key => $value) {
           $table .= "<tr>";
-          $table .= "<td><h4>{$value->event_date}</h4></td>";
+          $date = date_format(date_create($value->event_date), 'F jS, Y');
+          $table .= "<td><h4>{$date}</h4></td>";
           $table .= "<td><h4><a href='#'>{$value->event_info}</a></h4></td>";
           $table .= "</tr>";
         }
@@ -61,6 +62,7 @@ class Home extends MY_Controller{
         $data['home_message'] = $value->home_message;
       }
       $data['page_title'] = 'Edit Welcome Message';
+      $data['unread'] = count($this->contactus->unreadMessages());
       $data['content_view'] = 'Home/edit_welcomemessage_view';
       $this->templates->call_admin_template($data);
     }
@@ -102,6 +104,7 @@ class Home extends MY_Controller{
       }
       $data['page_title'] = 'List of Services';
       $data['service_table'] = $service_table;
+      $data['unread'] = count($this->contactus->unreadMessages());
       $data['content_view'] = 'Home/view_services_view';
       $this->templates->call_admin_template($data);
     }
@@ -128,6 +131,7 @@ class Home extends MY_Controller{
             $data['service'] = $value->service;
         }
       $data['page_title'] = 'Edit Service Details';
+      $data['unread'] = count($this->contactus->unreadMessages());
       $data['content_view'] = 'Home/edit_services_view';
       $this->templates->call_admin_template($data);
     }

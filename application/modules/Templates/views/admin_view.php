@@ -1,6 +1,6 @@
-<?php /*if ($this->session->userdata('loggedin') == 1 && $this->session->userdata('user_role') == 'admin'){
+<?php if ($this->session->userdata('loggedin') == 1 && $this->session->userdata('user_role') == 'admin'){
 
-*/?>
+?>
 
 <!DOCTYPE html>
 <html>
@@ -31,14 +31,16 @@
     <!-- Custom Css -->
     <link href="<?php echo base_url(); ?>assets/dist/css/style.css" rel="stylesheet">
 
-    <!-- Jquery Core Js -->
-    <script src="<?php echo base_url(); ?>assets/dist/plugins/jquery/jquery.min.js"></script>
-
-    <!-- Ckeditor -->
-    <script src="<?php echo base_url(); ?>assets/dist/plugins/ckeditor/ckeditor.js"></script>
-
     <!-- AdminBSB Themes. You can choose a theme from css/themes instead of get all themes -->
     <link href="<?php echo base_url(); ?>assets/dist/css/themes/all-themes.css" rel="stylesheet" />
+
+    <!-- Jquery Core Js 
+    <script src="<?php echo base_url(); ?>assets/dist/plugins/jquery/jquery.min.js"></script>-->
+
+    <!-- Ckeditor 
+    <script src="<?php echo base_url(); ?>assets/dist/plugins/ckeditor/ckeditor.js"></script>-->
+
+    
 </head>
 
 <body class="theme-blue">
@@ -94,8 +96,8 @@
                     <img src="<?php echo base_url(); ?>assets/dist/images/user.png" width="48" height="48" alt="User" />
                 </div>
                 <div class="info-container">
-                    <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">John Doe</div>
-                    <div class="email">john.doe@example.com</div>
+                    <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?php echo $this->session->userdata('name'); ?></div>
+                    <div class="email"><?php echo $this->session->userdata('username'); ?></div>
                     <div class="btn-group user-helper-dropdown">
                         <i class="material-icons" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">keyboard_arrow_down</i>
                         <ul class="dropdown-menu pull-right">
@@ -136,7 +138,7 @@
                             <a href="<?php echo base_url(); ?>Admin/edit_banner"><i class="material-icons">view_list</i><span>View banner</span></a>
                           </li>
                           <li>
-                            <a href="javascript:void(0);" class="menu-toggle"><i class="material-icons">create</i><span>Manage content</span></a>
+                            <a href="javascript:void(0);" class="menu-toggle"><i class="material-icons">laptop</i><span>Manage content</span></a>
                             <ul class="ml-menu">
                               <li>
                                 <a href="<?php echo base_url(); ?>Home/editWelcome"><i class="material-icons">create</i><span>Edit Welcome</span></a>
@@ -156,7 +158,7 @@
                     </li>
                     <li>
                         <a href="javascript:void(0);" class="menu-toggle">
-                          <i class="material-icons">create</i>
+                          <i class="material-icons">laptop</i>
                           <span>Manage AboutUs Page</span>
                         </a>
                         <ul class="ml-menu">
@@ -170,7 +172,7 @@
                      </li>
                      <li>
                         <a href="javascript:void(0);" class="menu-toggle">
-                          <i class="material-icons">create</i>
+                          <i class="material-icons">laptop</i>
                           <span>Manage Gallery</span>
                         </a>
                         <ul class="ml-menu">
@@ -181,7 +183,13 @@
                             <a href="<?php echo base_url(); ?>Gallery/viewGallery"><i class="material-icons">view_list</i><span>View Gallery</span></a>
                           </li>
                         </ul> 
-                     </li>       
+                     </li>
+                     <li>
+                        <a href="<?php echo base_url(); ?>ContactUs/viewMessages">
+                          <i class="material-icons">inbox</i>
+                          <span>Messages<?php if($unread != ""){ ?><span class="bg-light-blue" style="color:white; padding: 5px"><?php echo $unread; } ?> Unread</span></span>
+                        </a>
+                    </li>       
                 </ul>
             </div>
             <!-- #Menu -->
@@ -217,21 +225,9 @@
     <!-- Waves Effect Plugin Js -->
     <script src="<?php echo base_url(); ?>assets/dist/plugins/node-waves/waves.js"></script>
 
-    <!-- Ckeditor -->
-    <script src="<?php echo base_url(); ?>assets/dist/plugins/ckeditor/ckeditor.js"></script>
-
-    <!-- Input Mask Plugin Js -->
-    <script src="<?php echo base_url(); ?>assets/dist/plugins/jquery-inputmask/jquery.inputmask.bundle.js"></script>
-
     <!-- Jquery DataTable Plugin Js -->
     <script src="<?php echo base_url(); ?>assets/dist/plugins/jquery-datatable/jquery.dataTables.js"></script>
     <script src="<?php echo base_url(); ?>assets/dist/plugins/jquery-datatable/skin/bootstrap/js/dataTables.bootstrap.js"></script>
-
-    <!-- Custom Js -->
-    <script src="<?php echo base_url(); ?>assets/dist/js/admin.js"></script>
-    <script src="<?php echo base_url(); ?>assets/dist/js/pages/forms/editors.js"></script>
-    <script src="<?php echo base_url(); ?>assets/dist/js/pages/forms/advanced-form-elements.js"></script>
-    <script src="<?php echo base_url(); ?>assets/dist/js/pages/tables/jquery-datatable.js"></script>
     <script src="<?php echo base_url(); ?>assets/dist/plugins/jquery-datatable/extensions/export/dataTables.buttons.min.js"></script>
     <script src="<?php echo base_url(); ?>assets/dist/plugins/jquery-datatable/extensions/export/buttons.flash.min.js"></script>
     <script src="<?php echo base_url(); ?>assets/dist/plugins/jquery-datatable/extensions/export/jszip.min.js"></script>
@@ -240,10 +236,23 @@
     <script src="<?php echo base_url(); ?>assets/dist/plugins/jquery-datatable/extensions/export/buttons.html5.min.js"></script>
     <script src="<?php echo base_url(); ?>assets/dist/plugins/jquery-datatable/extensions/export/buttons.print.min.js"></script>
 
+    <!-- Custom Js -->
+    <script src="<?php echo base_url(); ?>assets/dist/js/admin.js"></script>
+    <script src="<?php echo base_url(); ?>assets/dist/js/pages/tables/jquery-datatable.js"></script>
+    <script src="<?php echo base_url(); ?>assets/dist/js/pages/forms/editors.js"></script>
+    <script src="<?php echo base_url(); ?>assets/dist/js/pages/forms/advanced-form-elements.js"></script>
+
+    <!-- Ckeditor -->
+    <script src="<?php echo base_url(); ?>assets/dist/plugins/ckeditor/ckeditor.js"></script>
+
+    <!-- Input Mask Plugin Js--> 
+    <script src="<?php echo base_url(); ?>assets/dist/plugins/jquery-inputmask/jquery.inputmask.bundle.js"></script>
+    
+
     <!-- Demo Js -->
     <script src="<?php echo base_url(); ?>assets/dist/js/demo.js"></script>
 </body>
 
 </html>
-<?php// } else {redirect(base_url().'Login');}
+<?php } else {redirect(base_url().'Login');}
 

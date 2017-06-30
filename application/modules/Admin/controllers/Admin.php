@@ -5,18 +5,20 @@ class Admin extends MY_Controller{
 	function __construct(){
 		parent::__construct();
 		$this->load->model("M_Admin");
-		$this->load->module('Templates');
+		$this->load->module(['Templates', 'ContactUs']);
 	}
 
 	function index($data = NULL){
 
 		$data['page_title'] = 'Dashboard';
+        $data['unread'] = count($this->contactus->unreadMessages());
         $data['content_view'] = 'Admin/dashboard_view';
         $this->templates->call_admin_template($data);
 	}
 
 	function manage_banner(){
 		$data['page_title'] = 'Manage Page Banner';
+        $data['unread'] = count($this->contactus->unreadMessages());
         $data['content_view'] = 'Admin/manage_banner_view';
         $this->templates->call_admin_template($data);
 	}
@@ -41,6 +43,7 @@ class Admin extends MY_Controller{
 		}
         $data['page_title'] = 'List of Available banners';
         $data['banner_table'] = $banner_table;
+        $data['unread'] = count($this->contactus->unreadMessages());
         $data['content_view'] = 'Admin/view_banner_view';
         $this->templates->call_admin_template($data);
 
@@ -56,6 +59,7 @@ class Admin extends MY_Controller{
         }
 
         $data['page_title'] = 'Make changes to banner';
+        $data['unread'] = count($this->contactus->unreadMessages());
         $data['content_view'] = 'Admin/update_banner_view';
         $this->templates->call_admin_template($data);
     }

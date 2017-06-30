@@ -28,4 +28,9 @@ class M_Gallery extends CI_Model{
         $query = $this->db->get();
         return $query->result();
     }
+
+    function deletePhoto($id){
+        $this->db->where('gallery_id', $id);
+        $this->db->delete('gallerytb');
+    }
 }

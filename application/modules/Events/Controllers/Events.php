@@ -3,12 +3,13 @@
 class Events extends MY_Controller{
 	function __construct(){
 		parent::__construct();
-		$this->load->module('Templates');
+		$this->load->module(['Templates', 'ContactUs']);
 		$this->load->model("M_Events");
 	}
 
 	function addEvents(){
 		$data['page_title'] = 'Event Management';
+		$data['unread'] = count($this->contactus->unreadMessages());
         $data['content_view'] = 'Events/add_events_view';
         $this->templates->call_admin_template($data);
 	}
@@ -37,7 +38,8 @@ class Events extends MY_Controller{
 			foreach ($events as $key => $value) {
 				$event_table .="<tr>";
 				$event_table .="<td>{$incrementer}</td>";
-                $event_table .="<td>{$value->event_date}</td>";
+				$date = date_format(date_create($value->event_date), 'F jS, Y');
+                $event_table .="<td>{$date}</td>";
 				$event_table .="<td>{$value->event_info}</td>";
 				$event_table .="<td><a href='".base_url()."Events/editEvent/{$value->eventid}'><i>Edit Event</i></a></td>";
 				$event_table .="<td><a href='".base_url()."Events/deleteEvent/{$value->eventid}'><i>Delete Event</i></a></td>";
@@ -46,6 +48,7 @@ class Events extends MY_Controller{
 		}
         $data['page_title'] = 'List of Events';
         $data['event_table'] = $event_table;
+        $data['unread'] = count($this->contactus->unreadMessages());
         $data['content_view'] = 'Events/view_event_view';
         $this->templates->call_admin_template($data);
 
@@ -61,6 +64,7 @@ class Events extends MY_Controller{
         }
 
         $data['page_title'] = 'Make changes to Event';
+        $data['unread'] = count($this->contactus->unreadMessages());
         $data['content_view'] = 'Events/edit_event_view';
         $this->templates->call_admin_template($data);
     }

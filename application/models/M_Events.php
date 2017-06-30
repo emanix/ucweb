@@ -17,7 +17,7 @@ class M_Events extends CI_Model{
 	function getEvents(){
 		$this->db->select('*');
 		$this->db->from('eventstb');
-		$this->db->order_by('eventid', 'ASC');
+		$this->db->order_by('event_date', 'ASC');
 		$query = $this->db->get();
 		return $query->result();
 	}

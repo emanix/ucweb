@@ -26,33 +26,29 @@
             <div class="body">
                   <form method="POST" class="form_vertical" action = "<?php echo base_url(); ?>Events/insertEvent" enctype="multipart/form-data">
                     <div class="row clearfix">
-                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-                          <div class="form-group">
-                            <div class="form-line">
-                              <input type="text" class="form-control" name="events_date" placeholder="Enter Events Date here... Format is: 2017-08-20" required>
-                            </div>
-                          </div>
-                        </div>
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                            <div class="header">
-                                <h2>
-                                    Events Details
-                                </h2>
-                            </div>
                             <div class="body">
+                              <h2 class="card-inside-title">Send Message</h2>
+                              <label>reply to: <?php echo $this->session->userdata('name'); ?> (<?php echo $this->session->userdata('email'); ?>)</label><br>
+                              <label>Subject: Re: <?php echo $this->session->userdata('subject'); ?></label><br>
                               <div class="row clearfix">
                                 <div class="col-sm-12">
                                   <div class="form-group">
                                     <div class="form-line">
-                                      <textarea rows="8" class="form-control no-resize" name="events_info" placeholder="Enter events description here..." required></textarea>
+                                      <textarea rows="8" class="form-control no-resize" name="message" placeholder="Enter your reply message here..."></textarea>
                                     </div>
                                   </div>
                                 </div>
                               </div>
                             </div>
                         </div>
+                        <div class="body">
+                          <div class="col-sm-12">
+                            <label><?php echo $this->session->userdata('message'); ?></label>
+                          </div>
+                        </div>
                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-                          <button type="submit" class="btn btn-primary btn-lg m-l-15 waves-effect">Submit</button>
+                          <button type="submit" class="btn btn-primary btn-lg m-l-15 waves-effect"><i class="material-icons">send</i><span> Send</span></button>
                         </div>
                     </div>
                 </form>

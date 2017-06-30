@@ -137,6 +137,7 @@
 	<div class="contact">
 		<div class="container">
 			<h3 class="w3l_header w3_agileits_header1">Get in <span>Touch</span></h3>
+			<?php if($response != ""){ ?><br><center><h3 style="color: green"><?php echo $response; ?></h3></center><?php } ?>
 			<div class="w3layouts_mail_grid">
 				<div class="col-md-4 w3layouts_mail_grid_left">
 					<div class="w3layouts_mail_grid_left1 hvr-radial-out">
@@ -165,12 +166,12 @@
 						<p>+234 706 463 7363, +234 703 084 6612</p>
 					</div>
 				</div>
-				<div class="clearfix"><?php if($response != ""){ ?><br><center><h3 style="color: green"><?php echo $response; ?></h3></center><?php } ?></div>
+				<div class="clearfix"></div>
 			</div>
 		</div>
 	</div>
 	<div class="w3_agile_map">
-		<iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d50416.99204102258!2d144.93732617279937!3d-37.83543431360044!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1saustralia+real+estate!5e0!3m2!1sen!2sin!4v1470915593791" style="border:0"></iframe>
+		<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.984565425717!2d3.7099968127031655!3d6.892449084070043!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103bd81639e54ec3%3A0x9129b4a8c8367e52!2sBabcock+University!5e0!3m2!1sen!2sng!4v1498756501409" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
 	</div>
 	<div class="contact">
 		<div class="container">
