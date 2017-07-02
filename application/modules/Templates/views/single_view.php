@@ -54,16 +54,9 @@
 					<nav class="menu--iris">
 						<ul class="nav navbar-nav menu__list">
 							<li class="menu__item menu__item"><a href="<?php echo base_url(); ?>Home" class="menu__link">Home</a></li>
-							<li class="menu__item--current"><a href="<?php echo base_url(); ?>AboutUs" class="menu__link">About Us</a></li>
-							<li class="menu__item"><a href="gallery.html" class="menu__link">Gallery</a></li>
-							<li class="dropdown menu__item">
-								<a href="#" class="dropdown-toggle menu__link" data-toggle="dropdown">Short Codes <b class="caret"></b></a>
-								<ul class="dropdown-menu agile_short_dropdown">
-									<li><a href="icons.html">Icons</a></li>
-									<li><a href="typography.html">Typography</a></li>
-								</ul>
-							</li>
-							<li class="menu__item"><a href="mail.html" class="menu__link">Mail Us</a></li>
+							<li class="menu__item"><a href="<?php echo base_url(); ?>AboutUs" class="menu__link">About Us</a></li>
+							<li class="menu__item"><a href="<?php echo base_url(); ?>Gallery" class="menu__link">Gallery</a></li>
+							<li class="menu__item"><a href="<?php echo base_url(); ?>ContactUs" class="menu__link">Contact Us</a></li>
 						</ul>
 						<div class="w3_agileits_search">
 							<ul class="social_agileinfo">
@@ -94,8 +87,13 @@
 					<div class="signin-form profile">
 						<h3 class="agileinfo_sign">Sign In</h3>	
 						<div class="login-form">
-						</div>
-						<div class="login-social-grids">
+							<form action="<?php echo base_url(); ?>SignIn/addSignin" method="post">
+								<input type="text" name="email" placeholder="E-mail" required="">
+								<input type="password" name="password" placeholder="Password" required="">
+								<div class="tp">
+									<input type="submit" value="Sign In">
+								</div>
+							</form>
 						</div>
 						<p><a href="#" data-toggle="modal" data-target="#myModal3" > Don't have an account?</a></p>
 					</div>
@@ -103,17 +101,39 @@
 			</div>
 		</div>
 	</div>
-	<!-- //Modal1 -->	
-	<!-- Modal2 -->
+<!-- //Modal1 -->	
+<!-- Modal2 -->
 	<div class="modal fade" id="myModal3" tabindex="-1" role="dialog">
 		<div class="modal-dialog">
-	<!-- Modal content-->
+<!-- Modal content-->
 			<div class="modal-content">
 				<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+																	
 					<div class="signin-form profile">
 						<h3 class="agileinfo_sign">Sign Up</h3>	
 						<div class="login-form">
+							<form action="<?php echo base_url(); ?>SignUp/addSignup" method="post">
+								<input type="text" name="fname" placeholder="Enter your first name" required>
+								<input type="text" name="lname" placeholder="Enter your Surname" required>
+								<input type="email" name="email" placeholder="Email" required="">
+								<input type="text" name="phone" placeholder="Phone number" required>
+								<select style="width: 100%" name="gender" require>
+									<option>Select Gender</option>
+									<option>Male</option>
+									<option>Female</option>
+								</select>
+								<select style="width: 100%" name="part" require>
+									<option>Select Part</option>
+									<option>Soprano</option>
+									<option>Alto</option>
+									<option>Tenor</option>
+									<option>Baritone</option>
+									<option>Bass</option>
+								</select>
+								<input type="text" name="denomination" placeholder="Enter your denomination" required>
+								<input type="submit" value="Sign Up">
+							</form>
 						</div>
 						<p><a href="#"> By clicking register, I agree to your terms</a></p>
 					</div>
@@ -121,18 +141,14 @@
 			</div>
 		</div>
 	</div>
-	<!-- //Modal2 -->	
+<!-- //Modal2 -->	
 
 <!-- services -->
 	<div class="services two">
 		<div class="container">
 			<div class="wthree_services_grids">	
-				<div class="col-md-7 wthree_services_grid_left">
-					<?php echo $about; ?>
-				</div>
-				<div class="col-md-5 wthree_services_grid_right" style="background: url(<?php echo base_url(); ?>assets/dist_web/images/ghana.jpg); min-height: 350px;">
-					
-					<div class="clearfix"> </div>
+				<div class="col-md-12 wthree_services_grid_left">
+					<?php if($success != ""){ ?><br><center><h3 style="color: green"><?php echo $success; ?></h3></center><?php } ?>
 				</div>
 				<div class="clearfix"> </div>
 			</div>
@@ -140,103 +156,6 @@
 	</div>
 <!-- //services -->
 
-<!-- stats -->
-	<div class="stats" id="stats">
-	    <div class="container"> 
-			<div class="inner_w3l_agile_grids">
-		<div class="col-md-3 w3layouts_stats_left w3_counter_grid">
-		   <i class="fa fa-laptop" aria-hidden="true"></i>
-			<p class="counter">45</p>
-			<h3>Courses</h3>
-		</div>
-		<div class="col-md-3 w3layouts_stats_left w3_counter_grid1">
-		    <i class="fa fa-smile-o" aria-hidden="true"></i>
-			<p class="counter">165</p>
-			<h3>Members</h3>
-		</div>
-		<div class="col-md-3 w3layouts_stats_left w3_counter_grid2">
-		<i class="fa fa-trophy" aria-hidden="true"></i>
-			<p class="counter">563</p>
-			<h3>Awards</h3>
-		</div>
-		<div class="col-md-3 w3layouts_stats_left w3_counter_grid3">
-		<i class="fa fa-user" aria-hidden="true"></i>
-			<p class="counter">245</p>
-			<h3>Instructors</h3>
-		</div>
-		<div class="clearfix"> </div>
-	</div>
-   </div>	
-</div>
-<!-- //stats -->
-
-<!-- stats-bottom -->
-	<div class="stats-bottom contact">
-		<div class="container">
-			<h3 class="w3l_header w3_agileits_header">Featured <span>Services</span></h3>
-			<div class="agileinfo_services_grids">
-				<div class="col-md-4 agileinfo_services_grid">
-					<div class="agileinfo_services_grid1">
-						<h4>Best Lab</h4>
-						<p>Phasellus a porttitor metus, vitae ultrices nibh. Sed eu fermentum nunc.</p>
-						<div class="agileinfo_services_grid1_pos">
-							<span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-4 agileinfo_services_grid">
-					<div class="agileinfo_services_grid1">
-						<h4>Best Teachers</h4>
-						<p>Phasellus a porttitor metus, vitae ultrices nibh. Sed eu fermentum nunc.</p>
-						<div class="agileinfo_services_grid1_pos">
-							<span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-4 agileinfo_services_grid">
-					<div class="agileinfo_services_grid1">
-						<h4>Low Cost Services</h4>
-						<p>Phasellus a porttitor metus, vitae ultrices nibh. Sed eu fermentum nunc.</p>
-						<div class="agileinfo_services_grid1_pos">
-							<span class="glyphicon glyphicon-retweet" aria-hidden="true"></span>
-						</div>
-					</div>
-				</div>
-				<div class="clearfix"> </div>
-			</div>
-			<div class="w3agile_services_grids">
-				<div class="col-md-4 agileinfo_services_grid">
-					<div class="agileinfo_services_grid1">
-						<h4>Best Class rooms</h4>
-						<p>Phasellus a porttitor metus, vitae ultrices nibh. Sed eu fermentum nunc.</p>
-						<div class="agileinfo_services_grid1_pos">
-							<span class="glyphicon glyphicon-share" aria-hidden="true"></span>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-4 agileinfo_services_grid">
-					<div class="agileinfo_services_grid1">
-						<h4>Online training</h4>
-						<p>Phasellus a porttitor metus, vitae ultrices nibh. Sed eu fermentum nunc.</p>
-						<div class="agileinfo_services_grid1_pos">
-							<span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-4 agileinfo_services_grid">
-					<div class="agileinfo_services_grid1">
-						<h4>Drawing lessons</h4>
-						<p>Phasellus a porttitor metus, vitae ultrices nibh. Sed eu fermentum nunc.</p>
-						<div class="agileinfo_services_grid1_pos">
-							<span class="glyphicon glyphicon-usd" aria-hidden="true"></span>
-						</div>
-					</div>
-				</div>
-				<div class="clearfix"> </div>
-			</div>
-		</div>
-	</div>
-<!-- //stats-bottom -->
 <!-- footer -->
 	<div class="footer">
 	<div class="f-bg-w3l">
@@ -256,11 +175,10 @@
 					<input type="submit" value="">
 				</form>
 				<ul class="w3l_footer_nav">
-					<li><a href="index.html">Home</a></li>
-					<li><a class="active" href="services.html">Services</a></li>
-					<li><a href="gallery.html">Gallery</a></li>
-					<li><a href="icons.html">Web Icons</a></li>
-					<li><a href="mail.html">Mail Us</a></li>
+					<li><a href="<?php echo base_url(); ?>Home">Home</a></li>
+					<li><a href="<?php echo base_url(); ?>AboutUs">About Us</a></li>
+					<li><a href="<?php echo base_url(); ?>Gallery">Gallery</a></li>
+					<li><a href="<?php echo base_url(); ?>ContactUs">Contact Us</a></li>
 				</ul>
 				<p>© 2017 UnityChorale. All Rights Reserved | Design by <i>emanixWEB Consult.</i></p>
 			</div>

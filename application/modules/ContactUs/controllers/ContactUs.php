@@ -70,7 +70,7 @@ class ContactUs extends MY_Controller{
 			$data['subject'] = $value->subject;
 			$data['message'] = $value->message;
 			$data['date'] = date_format(date_create($value->date), 'F jS, Y');
-			$this->session->set_userdata(array('name' => $value->name,
+			$this->session->set_userdata(array('senders_name' => $value->name,
 				'email' => $value->email,
 				'message' => $value->message,
 				'subject' => $value->subject
@@ -92,12 +92,20 @@ class ContactUs extends MY_Controller{
 
 	function sendMessage(){
 		if($this->input->post()){
+			$this->load->library('email');
+			$config = Array(
+			  'mailtype' => 'html'
+			);
+
+			$this->email->initialize($config);
 			
+	        $this->email->from('noreply@unitychoraleng.org', 'Unity Chorale');
+			$this->email->to($this->session->userdata('email'));
+	        $this->email->subject('Re: '.$this->session->userdata('subject').'');
+	        $this->email->message('Dear '.$this->session->userdata('senders_name').', ' .$this->input->post('message'));
+	        $this->email->send();
 		}
-		$this->email->to($this->session->userdata('email'));
-        $this->email->from('emanixworld@gmail.com');
-        $this->email->subject('Thank');
-        $this->email->message('Hi '.$name.' Here is the info you requested.');
-        $this->email->send();
+		$this->session->set_flashdata('success', 'Your Message has been sent');
+		redirect(base_url().'ContactUs/viewMessages');
 	}
 }

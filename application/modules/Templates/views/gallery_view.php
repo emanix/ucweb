@@ -86,7 +86,7 @@
 					<div class="signin-form profile">
 						<h3 class="agileinfo_sign">Sign In</h3>	
 						<div class="login-form">
-							<form action="#" method="post">
+							<form action="<?php echo base_url(); ?>SignIn/addSignin" method="post">
 								<input type="text" name="email" placeholder="E-mail" required="">
 								<input type="password" name="password" placeholder="Password" required="">
 								<div class="tp">
@@ -100,119 +100,53 @@
 			</div>
 		</div>
 	</div>
-	<!-- //Modal1 -->	
-	<!-- Modal2 -->
+<!-- //Modal1 -->	
+<!-- Modal2 -->
 	<div class="modal fade" id="myModal3" tabindex="-1" role="dialog">
 		<div class="modal-dialog">
-	<!-- Modal content-->
+<!-- Modal content-->
 			<div class="modal-content">
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal">&times;</button>
+																	
 					<div class="signin-form profile">
 						<h3 class="agileinfo_sign">Sign Up</h3>	
-							<div class="login-form">
-								<form action="#" method="post">
-									<input type="text" name="name" placeholder="Username" required="">
-									<input type="email" name="email" placeholder="Email" required="">
-									<input type="password" name="password" placeholder="Password" required="">
-									<input type="password" name="password" placeholder="Confirm Password" required="">
-									<input type="submit" value="Sign Up">
-								</form>
-							</div>
-							<p><a href="#"> By clicking register, I agree to your terms</a></p>
+						<div class="login-form">
+							<form action="<?php echo base_url(); ?>SignUp/addSignup" method="post">
+								<input type="text" name="fname" placeholder="Enter your first name" required>
+								<input type="text" name="lname" placeholder="Enter your Surname" required>
+								<input type="email" name="email" placeholder="Email" required="">
+								<input type="text" name="phone" placeholder="Phone number" required>
+								<select style="width: 100%" name="gender" require>
+									<option>Select Gender</option>
+									<option>Male</option>
+									<option>Female</option>
+								</select>
+								<select style="width: 100%" name="part" require>
+									<option>Select Part</option>
+									<option>Soprano</option>
+									<option>Alto</option>
+									<option>Tenor</option>
+									<option>Baritone</option>
+									<option>Bass</option>
+								</select>
+								<input type="text" name="denomination" placeholder="Enter your denomination" required>
+								<input type="submit" value="Sign Up">
+							</form>
+						</div>
+						<p><a href="#"> By clicking register, I agree to your terms</a></p>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-	<!-- //Modal2 -->	
+<!-- //Modal2 -->	
 
 	<div class="contact">
   	<div class="container">
 	<h3 class="w3l_header w3_agileits_header">Our <span>Gallery</span></h3>
 			<div class="inner_w3l_agile_grids-gal">
 				<?php echo $gallery; ?>
-				<!--<div class="col-md-4 gallery-grid gallery1">
-					<a href="<?php echo base_url(); ?>assets/dist_web/images/1.jpg" class="swipebox"><img src="<?php echo base_url(); ?>assets/dist_web/images/1.jpg" class="img-responsive" alt="/">
-						<div class="textbox">
-							<br><br><br><br><br><br>
-							<p>jfsajfsjf;lk;lfl;sdfl;sd
-							jf;lksjkfl;sdakf
-							kljf;ldksjf;l</p>
-							
-						</div>
-					</a>
-				</div>
-				<div class="col-md-4 gallery-grid gallery1">
-					<a href="<?php echo base_url(); ?>assets/dist_web/images/2.jpg" class="swipebox"><img src="<?php echo base_url(); ?>assets/dist_web/images/2.jpg" class="img-responsive" alt="/">
-						<div class="textbox">
-						<h4>Mastering</h4>
-						<p><i class="fa fa-graduation-cap" aria-hidden="true"></i></p>
-						
-						</div>
-					</a>
-				</div>
-				<div class="col-md-4 gallery-grid gallery1">
-					<a href="<?php echo base_url(); ?>assets/dist_web/images/3.jpg" class="swipebox"><img src="<?php echo base_url(); ?>assets/dist_web/images/3.jpg" class="img-responsive" alt="/">
-						<div class="textbox">
-						<h4>Mastering</h4>
-							<p><i class="fa fa-graduation-cap" aria-hidden="true"></i></p>
-							
-						</div>
-					</a>
-				</div>
-				<div class="col-md-4 gallery-grid gallery1">
-					<a href="<?php echo base_url(); ?>assets/dist_web/images/4.jpg" class="swipebox"><img src="<?php echo base_url(); ?>assets/dist_web/images/4.jpg" class="img-responsive" alt="/">
-						<div class="textbox">
-						<h4>Mastering</h4>
-							<p><i class="fa fa-graduation-cap" aria-hidden="true"></i></p>
-							
-						</div>
-					</a>
-				</div>
-				<div class="col-md-4 gallery-grid gallery1">
-					<a href="<?php echo base_url(); ?>assets/dist_web/images/5.jpg" class="swipebox"><img src="<?php echo base_url(); ?>assets/dist_web/images/5.jpg" class="img-responsive" alt="/">
-						<div class="textbox">
-						<h4>Mastering</h4>
-							<p><i class="fa fa-graduation-cap" aria-hidden="true"></i></p>
-							
-						</div>
-					</a>
-				</div>
-				<div class="col-md-4 gallery-grid gallery1">
-					<a href="<?php echo base_url(); ?>assets/dist_web/images/6.jpg" class="swipebox"><img src="<?php echo base_url(); ?>assets/dist_web/images/6.jpg" class="img-responsive" alt="/">
-						<div class="textbox">
-						<h4>Mastering</h4>
-							<p><i class="fa fa-graduation-cap" aria-hidden="true"></i></p>
-					   </div>
-				   </a>
-				</div>
-				<div class="col-md-4 gallery-grid gallery1">
-					<a href="<?php echo base_url(); ?>assets/dist_web/images/7.jpg" class="swipebox"><img src="<?php echo base_url(); ?>assets/dist_web/images/7.jpg" class="img-responsive" alt="/">
-						<div class="textbox">
-						<h4>Mastering</h4>
-							<p><i class="fa fa-graduation-cap" aria-hidden="true"></i></p>
-					   </div>
-				   </a>
-				</div>
-				<div class="col-md-4 gallery-grid gallery1">
-					<a href="<?php echo base_url(); ?>assets/dist_web/images/8.jpg" class="swipebox"><img src="<?php echo base_url(); ?>assets/dist_web/images/8.jpg" class="img-responsive" alt="/">
-						<div class="textbox">
-						<h4>Mastering</h4>
-							<p><i class="fa fa-graduation-cap" aria-hidden="true"></i></p>
-					   </div>
-				   </a>
-				</div>
-					<div class="col-md-4 gallery-grid gallery1">
-					<a href="<?php echo base_url(); ?>assets/dist_web/images/2.jpg" class="swipebox"><img src="<?php echo base_url(); ?>assets/dist_web/images/2.jpg" class="img-responsive" alt="/">
-						<div class="textbox">
-						<h4>Mastering</h4>
-							<p><i class="fa fa-graduation-cap" aria-hidden="true"></i></p>
-							
-						</div>
-					</a>
-				</div>-->
-			
 				<div class="clearfix"> </div>
 			</div>
 		</div>	

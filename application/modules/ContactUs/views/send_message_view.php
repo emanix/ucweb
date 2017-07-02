@@ -24,12 +24,12 @@
                 </div>
               <?php } ?>
             <div class="body">
-                  <form method="POST" class="form_vertical" action = "<?php echo base_url(); ?>Events/insertEvent" enctype="multipart/form-data">
+                  <form method="POST" class="form_vertical" action = "<?php echo base_url(); ?>ContactUs/sendMessage" enctype="multipart/form-data">
                     <div class="row clearfix">
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                             <div class="body">
                               <h2 class="card-inside-title">Send Message</h2>
-                              <label>reply to: <?php echo $this->session->userdata('name'); ?> (<?php echo $this->session->userdata('email'); ?>)</label><br>
+                              <label>reply to: <?php echo $this->session->userdata('senders_name'); ?> (<?php echo $this->session->userdata('email'); ?>)</label><br>
                               <label>Subject: Re: <?php echo $this->session->userdata('subject'); ?></label><br>
                               <div class="row clearfix">
                                 <div class="col-sm-12">

@@ -87,7 +87,7 @@
 					<div class="signin-form profile">
 						<h3 class="agileinfo_sign">Sign In</h3>	
 						<div class="login-form">
-							<form action="#" method="post">
+							<form action="<?php echo base_url(); ?>SignIn/addSignin" method="post">
 								<input type="text" name="email" placeholder="E-mail" required="">
 								<input type="password" name="password" placeholder="Password" required="">
 								<div class="tp">
@@ -101,22 +101,37 @@
 			</div>
 		</div>
 	</div>
-	<!-- //Modal1 -->	
-	<!-- Modal2 -->
+<!-- //Modal1 -->	
+<!-- Modal2 -->
 	<div class="modal fade" id="myModal3" tabindex="-1" role="dialog">
 		<div class="modal-dialog">
-	<!-- Modal content-->
+<!-- Modal content-->
 			<div class="modal-content">
 				<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+																	
 					<div class="signin-form profile">
 						<h3 class="agileinfo_sign">Sign Up</h3>	
 						<div class="login-form">
-							<form action="#" method="post">
-								<input type="text" name="name" placeholder="Enter your name" required="">
+							<form action="<?php echo base_url(); ?>SignUp/addSignup" method="post">
+								<input type="text" name="fname" placeholder="Enter your first name" required>
+								<input type="text" name="lname" placeholder="Enter your Surname" required>
 								<input type="email" name="email" placeholder="Email" required="">
-								<input type="text" name="password" placeholder="Denomination (your church)" required="">
-								<input type="text" name="password" placeholder="Confirm Password" required="">
+								<input type="text" name="phone" placeholder="Phone number" required>
+								<select style="width: 100%" name="gender" require>
+									<option>Select Gender</option>
+									<option>Male</option>
+									<option>Female</option>
+								</select>
+								<select style="width: 100%" name="part" require>
+									<option>Select Part</option>
+									<option>Soprano</option>
+									<option>Alto</option>
+									<option>Tenor</option>
+									<option>Baritone</option>
+									<option>Bass</option>
+								</select>
+								<input type="text" name="denomination" placeholder="Enter your denomination" required>
 								<input type="submit" value="Sign Up">
 							</form>
 						</div>
@@ -126,7 +141,7 @@
 			</div>
 		</div>
 	</div>
-	<!-- //Modal2 -->	
+<!-- //Modal2 -->	
 
 <!-- services -->
 	<div class="services two">

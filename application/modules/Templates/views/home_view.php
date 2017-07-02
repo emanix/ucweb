@@ -96,7 +96,7 @@
 					<div class="signin-form profile">
 						<h3 class="agileinfo_sign">Sign In</h3>	
 						<div class="login-form">
-							<form action="#" method="post">
+							<form action="<?php echo base_url(); ?>SignIn/addSignin" method="post">
 								<input type="text" name="email" placeholder="E-mail" required="">
 								<input type="password" name="password" placeholder="Password" required="">
 								<div class="tp">
@@ -122,11 +122,25 @@
 					<div class="signin-form profile">
 						<h3 class="agileinfo_sign">Sign Up</h3>	
 						<div class="login-form">
-							<form action="#" method="post">
-								<input type="text" name="name" placeholder="Username" required="">
+							<form action="<?php echo base_url(); ?>SignUp/addSignup" method="post">
+								<input type="text" name="fname" placeholder="Enter your first name" required>
+								<input type="text" name="lname" placeholder="Enter your Surname" required>
 								<input type="email" name="email" placeholder="Email" required="">
-								<input type="password" name="password" placeholder="Password" required="">
-								<input type="password" name="password" placeholder="Confirm Password" required="">
+								<input type="text" name="phone" placeholder="Phone number" required>
+								<select style="width: 100%" name="gender" require>
+									<option>Select Gender</option>
+									<option>Male</option>
+									<option>Female</option>
+								</select>
+								<select style="width: 100%" name="part" require>
+									<option>Select Part</option>
+									<option>Soprano</option>
+									<option>Alto</option>
+									<option>Tenor</option>
+									<option>Baritone</option>
+									<option>Bass</option>
+								</select>
+								<input type="text" name="denomination" placeholder="Enter your denomination" required>
 								<input type="submit" value="Sign Up">
 							</form>
 						</div>
@@ -138,31 +152,6 @@
 	</div>
 <!-- //Modal2 -->	
 
-<!-- bootstrap-pop-up -->
-	<div class="modal video-modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModal">
-		<div class="modal-dialog" role="document">
-			<div class="modal-content">
-				<div class="modal-header">
-				
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>						
-				</div>
-				<section>
-					<div class="modal-body">
-						<h5>Mastering</h5>
-						<img src="images/2.jpg" alt=" " class="img-responsive" />
-						<p>Ut enim ad minima veniam, quis nostrum 
-							exercitationem ullam corporis suscipit laboriosam, 
-							nisi ut aliquid ex ea commodi consequatur? Quis autem 
-							vel eum iure reprehenderit qui in ea voluptate velit 
-							e.
-							<i>" Quis autem vel eum iure reprehenderit qui in ea voluptate velit 
-								esse quam nihil molestiae consequatur.</i></p>
-					</div>
-				</section>
-			</div>
-		</div>
-	</div>
-<!-- //bootstrap-pop-up -->
 <!-- banner-bottom -->
 	<div class="blog" id="blog">
 		<div class="container">
