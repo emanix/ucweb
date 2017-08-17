@@ -10,9 +10,9 @@
             </div>
         <?php } ?>
 
-        <?php if (isset($_SESSION['success'])) {?>
+        <?php if (isset($_SESSION['successful'])) {?>
             <div class="alert alert-success">
-                <?php  echo $_SESSION['success'];?>
+                <?php  echo $_SESSION['successful'];?>
             </div>
         <?php } ?>
 
@@ -26,25 +26,30 @@
             <thead>
                 <tr>
                   <th>Serial No</th>
-                  <th>Event Date</th>
-                  <th>Event Details</th>
+                  <th>First Name</th>
+                  <th>Last Name</th>
+                  <th>Email</th>
+                  <th>Gender</th>
+                  <th></th>
+                  <th></th>
+                  <th></th>
                 </tr>
             </thead>
             <tbody>
                 <?php
-                if ($event_table !== "" )
+                if ($signup_table !== "" )
                 {
-                   echo $event_table;
+                   echo $signup_table;
                 }
                 else{
                 ?>
                   <tr>
-                    <td colspan="3"><center><h4>No event to display</h4></center></td>
+                    <td colspan="11"><center><h4>No Sign up available</h4></center></td>
                   </tr>
                 <?php } ?>
             </tbody>
         </table>
-        </div>
+      </div>
     </div>
   </div>
 </div>

@@ -26,20 +26,21 @@
             <thead>
                 <tr>
                   <th>Serial No</th>
-                  <th>Event Date</th>
-                  <th>Event Details</th>
+                  <th>Song Title</th>
+                  <th>Genre</th>
+                  <th></th>
                 </tr>
             </thead>
             <tbody>
                 <?php
-                if ($event_table !== "" )
+                if ($repert_table !== "" )
                 {
-                   echo $event_table;
+                   echo $repert_table;
                 }
                 else{
                 ?>
                   <tr>
-                    <td colspan="3"><center><h4>No event to display</h4></center></td>
+                    <td colspan="3"><center><h4>No song to display</h4></center></td>
                   </tr>
                 <?php } ?>
             </tbody>

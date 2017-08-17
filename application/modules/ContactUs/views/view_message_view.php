@@ -29,6 +29,7 @@
                   <th>Date</th>
                   <th>Sender</th>
                   <th>Message Subject</th>
+                  <th></th>
                 </tr>
             </thead>
             <tbody>

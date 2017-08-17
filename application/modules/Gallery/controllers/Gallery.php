@@ -2,7 +2,7 @@
 class Gallery extends MY_Controller{
 	function __construct(){
 		parent::__construct();
-		$this->load->module(['Templates', 'ContactUs']);
+		$this->load->module(['Templates', 'ContactUs', 'SignUp']);
 		$this->load->model(['M_Gallery']);
 	}
 
@@ -15,6 +15,7 @@ class Gallery extends MY_Controller{
 	function addPhotoView(){
 		$data['page_title'] = 'Add Photos to Gallery';
 		$data['unread'] = count($this->contactus->unreadMessages());
+		$data['signups'] = count($this->signup->countSignups());
 		$data['content_view'] = 'Gallery/add_gallery_view';
 		$this->templates->call_admin_template($data);
 	}
@@ -78,6 +79,7 @@ class Gallery extends MY_Controller{
         $data['page_title'] = 'List of Gallery Images';
         $data['gallery_table'] = $gallery_table;
         $data['unread'] = count($this->contactus->unreadMessages());
+        $data['signups'] = count($this->signup->countSignups());
         $data['content_view'] = 'Gallery/view_gallery_view';
         $this->templates->call_admin_template($data);
 	}
@@ -92,6 +94,7 @@ class Gallery extends MY_Controller{
 
 		$data['page_title'] = 'Edit Photo';
 		$data['unread'] = count($this->contactus->unreadMessages());
+		$data['signups'] = count($this->signup->countSignups());
 		$data['content_view'] = 'Gallery/edit_gallery_view';
 		$this->templates->call_admin_template($data);
 	}

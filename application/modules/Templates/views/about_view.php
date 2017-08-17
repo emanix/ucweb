@@ -87,9 +87,9 @@
 					<div class="signin-form profile">
 						<h3 class="agileinfo_sign">Sign In</h3>	
 						<div class="login-form">
-							<form action="<?php echo base_url(); ?>SignIn/addSignin" method="post">
-								<input type="text" name="email" placeholder="E-mail" required="">
-								<input type="password" name="password" placeholder="Password" required="">
+							<form action="<?php echo base_url(); ?>Login/sign_inUser" method="post">
+								<input type="text" name="username" placeholder="Username" required>
+								<input type="password" name="password" placeholder="Password" required>
 								<div class="tp">
 									<input type="submit" value="Sign In">
 								</div>
@@ -114,6 +114,7 @@
 						<h3 class="agileinfo_sign">Sign Up</h3>	
 						<div class="login-form">
 							<form action="<?php echo base_url(); ?>SignUp/addSignup" method="post">
+								<input type="text" name="username" placeholder="Enter your username" required>
 								<input type="text" name="fname" placeholder="Enter your first name" required>
 								<input type="text" name="lname" placeholder="Enter your Surname" required>
 								<input type="email" name="email" placeholder="Email" required="">
@@ -123,13 +124,24 @@
 									<option>Male</option>
 									<option>Female</option>
 								</select>
+								<label>Musical Quality</label>
+								<input type="checkbox" name="vocalist" value="Vocalist"> Vocalist
+  								<input type="checkbox" name="instrumentalist" value="Instrumentalist"> Instrumentalist<br> 
 								<select style="width: 100%" name="part" require>
-									<option>Select Part</option>
+									<option>Select Vocal Part</option>
 									<option>Soprano</option>
 									<option>Alto</option>
 									<option>Tenor</option>
 									<option>Baritone</option>
 									<option>Bass</option>
+								</select>
+								<select style="width: 100%" name="musical_skill" require>
+									<option>Select Musical Skills</option>
+									<option>Brass Instruments</option>
+									<option>Keyboard</option>
+									<option>Percursion Instuments</option>
+									<option>String Instruments</option>
+									<option>Woodwind Instruments</option>
 								</select>
 								<input type="text" name="denomination" placeholder="Enter your denomination" required>
 								<input type="submit" value="Sign Up">

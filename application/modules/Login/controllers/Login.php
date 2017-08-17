@@ -20,6 +20,7 @@ class Login extends MY_Controller{
         $this->templates->load_login_template();
     }
 
+    //Admin login
     function sign_in(){
         //Verifies users details and signs user in
         $this->load->library('form_validation');
@@ -124,8 +125,65 @@ class Login extends MY_Controller{
 
     }
 
-     function sign_out(){
+    function sign_out(){
         $this->session->sess_destroy();
         redirect(base_url().'Login');
+    }
+
+    //Users login
+
+    function sign_inUser(){
+        //Verifies users details and signs user in
+        /*$this->load->library('form_validation');
+
+        //rules for registration
+
+        $this->form_validation->set_rules('user', 'Email Address', 'trim|required|valid_email');
+        $this->form_validation->set_rules('password', 'Password', 'required');
+        // if validation fails
+        if ($this->form_validation->run() == FALSE){
+            $this->sign_err();
+
+        }
+        // if validation succeeds
+        else{*/
+
+            if ($this->input->post()){
+                $username = $this->input->post('username');
+                $user_password = sha1($this->input->post('password'));
+
+                // Checks if username and password exists
+                $userdetails = $this->M_Login->confirm_members_details($username, $user_password);
+                // if exists
+                if (count($userdetails) == 1){
+
+                    foreach ($userdetails as $key => $value) {
+                        // Redirect to Administrators page
+                        $name = $value->lname. " " .$value->fname. "";
+                        if ($value->status == '1') {
+                            $this->session->set_userdata(array(
+                            'user_id' => $value->user_id,
+                            'status' => $value->status,
+                            'email' => $value->email,
+                            'users_name' => $name,
+                            'loggedin' => 1
+                            ));
+                            redirect(base_url() . 'Users');
+                        } 
+                    }
+                }
+                else
+                {
+                    $this->session->set_flashdata('failed', 'Sign in unsuccessful, incorrect username or password.');
+
+                    redirect(base_url().'Home/Feedback');
+                }
+            }
+        //}
+    }
+
+    function sign_outUser(){
+        $this->session->sess_destroy();
+        redirect(base_url().'Home');
     }
 }

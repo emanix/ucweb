@@ -2,7 +2,7 @@
 class ContactUs extends MY_Controller{
 	function __construct(){
 		parent::__construct();
-		$this->load->module(['Templates', 'ContactUs']);
+		$this->load->module(['Templates', 'ContactUs', 'SignUp']);
 		$this->load->model(['M_ContactUs']);
 	}
 
@@ -56,6 +56,7 @@ class ContactUs extends MY_Controller{
 		$data['page_title'] = 'Messages';
         $data['message_table'] = $message_table;
         $data['unread'] = count($this->contactus->unreadMessages());
+        $data['signups'] = count($this->signup->countSignups());
         $data['content_view'] = 'ContactUs/view_message_view';
         $this->templates->call_admin_template($data);
 	}
@@ -79,6 +80,7 @@ class ContactUs extends MY_Controller{
 
 		$data['page_title'] = 'Read Message';
         $data['unread'] = count($this->contactus->unreadMessages());
+        $data['signups'] = count($this->signup->countSignups());
         $data['content_view'] = 'ContactUs/read_message_view';
         $this->templates->call_admin_template($data);
 	}
@@ -86,6 +88,7 @@ class ContactUs extends MY_Controller{
 	function createMessage(){
 		$data['page_title'] = 'Create Message';
         $data['unread'] = count($this->contactus->unreadMessages());
+        $data['signups'] = count($this->signup->countSignups());
         $data['content_view'] = 'ContactUs/send_message_view';
         $this->templates->call_admin_template($data);
 	}

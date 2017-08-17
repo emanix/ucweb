@@ -5,7 +5,7 @@ class Home extends MY_Controller{
     function __construct()
     {
         parent::__construct();
-        $this->load->module(['Templates', 'ContactUs']);
+        $this->load->module(['Templates', 'ContactUs', 'SignUp']);
         $this->load->model(['M_Home', 'M_Events']);
         
     }
@@ -63,6 +63,7 @@ class Home extends MY_Controller{
       }
       $data['page_title'] = 'Edit Welcome Message';
       $data['unread'] = count($this->contactus->unreadMessages());
+      $data['signups'] = count($this->signup->countSignups());
       $data['content_view'] = 'Home/edit_welcomemessage_view';
       $this->templates->call_admin_template($data);
     }
@@ -105,6 +106,7 @@ class Home extends MY_Controller{
       $data['page_title'] = 'List of Services';
       $data['service_table'] = $service_table;
       $data['unread'] = count($this->contactus->unreadMessages());
+      $data['signups'] = count($this->signup->countSignups());
       $data['content_view'] = 'Home/view_services_view';
       $this->templates->call_admin_template($data);
     }
@@ -132,6 +134,7 @@ class Home extends MY_Controller{
         }
       $data['page_title'] = 'Edit Service Details';
       $data['unread'] = count($this->contactus->unreadMessages());
+      $data['signups'] = count($this->signup->countSignups());
       $data['content_view'] = 'Home/edit_services_view';
       $this->templates->call_admin_template($data);
     }
@@ -154,4 +157,10 @@ class Home extends MY_Controller{
       }
       return $services;
     }
+
+    function Feedback(){
+    $data['header'] = 'Feedback';
+    $data['success'] = $this->session->flashdata('failed');
+    $this->templates->call_single_template($data);
+  }
 }

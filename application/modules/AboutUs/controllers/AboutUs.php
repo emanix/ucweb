@@ -2,7 +2,7 @@
 class AboutUs extends MY_Controller{
 	function __construct(){
 		parent::__construct();
-		$this->load->module(['Templates', 'ContactUs']);
+		$this->load->module(['Templates', 'ContactUs', 'SignUp']);
 		$this->load->model(['M_AboutUs']);
 	}
 
@@ -22,6 +22,7 @@ class AboutUs extends MY_Controller{
       }
       $data['page_title'] = 'Edit About Us Message';
       $data['unread'] = count($this->contactus->unreadMessages());
+      $data['signups'] = count($this->signup->countSignups());
       $data['content_view'] = 'AboutUs/edit_aboutus_view';
       $this->templates->call_admin_template($data);
     }
@@ -59,6 +60,7 @@ class AboutUs extends MY_Controller{
         }
       $data['page_title'] = 'Edit '.$office.'\'s Details';
       $data['unread'] = count($this->contactus->unreadMessages());
+      $data['signups'] = count($this->signup->countSignups());
       $data['content_view'] = 'AboutUs/edit_team_view';
       $this->templates->call_admin_template($data);
     }
@@ -142,6 +144,7 @@ class AboutUs extends MY_Controller{
         $data['page_title'] = 'List of Team Members';
         $data['team_table'] = $team_table;
         $data['unread'] = count($this->contactus->unreadMessages());
+        $data['signups'] = count($this->signup->countSignups());
         $data['content_view'] = 'AboutUs/view_team_view';
         $this->templates->call_admin_template($data);
 

@@ -49,4 +49,10 @@ class Templates extends MY_Controller{
 
         $this->load->view('contacts_view', $data);
     }
+
+    function call_users_template($data = NULL){
+        //call users template
+
+        $this->load->view('users_view', $data);
+    }
  }

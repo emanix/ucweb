@@ -3,13 +3,14 @@
 class Events extends MY_Controller{
 	function __construct(){
 		parent::__construct();
-		$this->load->module(['Templates', 'ContactUs']);
+		$this->load->module(['Templates', 'ContactUs', 'SignUp']);
 		$this->load->model("M_Events");
 	}
 
 	function addEvents(){
 		$data['page_title'] = 'Event Management';
 		$data['unread'] = count($this->contactus->unreadMessages());
+		$data['signups'] = count($this->signup->countSignups());
         $data['content_view'] = 'Events/add_events_view';
         $this->templates->call_admin_template($data);
 	}
@@ -49,6 +50,7 @@ class Events extends MY_Controller{
         $data['page_title'] = 'List of Events';
         $data['event_table'] = $event_table;
         $data['unread'] = count($this->contactus->unreadMessages());
+        $data['signups'] = count($this->signup->countSignups());
         $data['content_view'] = 'Events/view_event_view';
         $this->templates->call_admin_template($data);
 
@@ -65,6 +67,7 @@ class Events extends MY_Controller{
 
         $data['page_title'] = 'Make changes to Event';
         $data['unread'] = count($this->contactus->unreadMessages());
+        $data['signups'] = count($this->signup->countSignups());
         $data['content_view'] = 'Events/edit_event_view';
         $this->templates->call_admin_template($data);
     }
