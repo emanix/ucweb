@@ -216,4 +216,41 @@ class Admin extends MY_Controller{
         return $config;
     }
 
+    function addConnectsView(){
+        $connect = $this->M_Admin->getConnect();
+
+        foreach ($connect as $key => $value) {
+            $data['phone1'] = $value->phone1;
+            $data['phone2'] = $value->phone2;
+            $data['email'] = $value->email;
+            $data['facebook'] = $value->facebook;
+            $data['instagram'] = $value->instagram;
+            $data['googleplus'] = $value->googleplus;
+            $data['twitter'] = $value->twitter;
+        }
+        $data['page_title'] = 'Add Connects';
+        $data['unread'] = count($this->contactus->unreadMessages());
+        $data['signups'] = count($this->signup->countSignups());
+        $data['content_view'] = 'Admin/manage_connect_view';
+        $this->templates->call_admin_template($data);
+    }
+
+    function manageConnects(){
+        if($this->input->post()){
+            $data = array('phone1' => $this->input->post('phone1'),
+                'phone2' => $this->input->post('phone2'),
+                'email' => $this->input->post('email'),
+                'facebook' => $this->input->post('facebook'),
+                'instagram' => $this->input->post('instagram'),
+                'googleplus' => $this->input->post('google'),
+                'twitter' => $this->input->post('twitter')
+            );
+
+            $this->M_Admin->insertConnect($data);
+
+            $this->session->set_flashdata('success', 'Contact updated successfully');
+            redirect(base_url().'Admin/addConnectsView');
+        }
+    }
+
 }

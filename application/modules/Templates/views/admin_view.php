@@ -88,7 +88,7 @@
                 <a href="javascript:void(0);" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false"></a>
                 <a href="javascript:void(0);" class="bars"></a>
                 <img style="float: left; padding-right: 10px" src="<?php echo base_url(); ?>assets/images/unity_chorale_logo1.jpg" alt="Unity Chorale logo" />
-                <a class="navbar-brand" href="#">UNITY CHORALE ADMIN VIEW</a>
+                <a class="navbar-brand" href="#">UNITY CHORALE ADMINISTRATIVE PAGE</a>
             </div>
             
         </div>
@@ -152,6 +152,9 @@
                               </li>
                               <li>
                                 <a href="<?php echo base_url(); ?>Events/addEvents"><i class="material-icons">add_box</i><span>Add Events</span></a>
+                              </li>
+                              <li>
+                                <a href="<?php echo base_url(); ?>Admin/addConnectsView"><i class="material-icons">add_box</i><span>Add Contacts</span></a>
                               </li>
                               <li>
                                 <a href="<?php echo base_url(); ?>Events/viewEvents"><i class="material-icons">view_list</i><span>View Events</span></a>

@@ -3,10 +3,21 @@ class AboutUs extends MY_Controller{
 	function __construct(){
 		parent::__construct();
 		$this->load->module(['Templates', 'ContactUs', 'SignUp']);
-		$this->load->model(['M_AboutUs']);
+		$this->load->model(['M_AboutUs', 'M_Admin']);
 	}
 
 	function index($data = NULL){
+    $connect = $this->M_Admin->getConnect();
+
+        foreach ($connect as $key => $value) {
+            $data['phone1'] = $value->phone1;
+            $data['phone2'] = $value->phone2;
+            $data['email'] = $value->email;
+            $data['facebook'] = $value->facebook;
+            $data['instagram'] = $value->instagram;
+            $data['googleplus'] = $value->googleplus;
+            $data['twitter'] = $value->twitter;
+        }
 		$data['header'] = 'About Us';
 		$data['about'] = $this->getAbout();
     $data['team'] = $this->teamMembers();

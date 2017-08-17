@@ -21,4 +21,15 @@ class M_Admin extends CI_Model{
         $query = $this->db->get();
         return $query->result();
     }
+
+    function insertConnect($data){
+        $this->db->update('ourconnecttb', $data);
+    }
+
+    function getConnect(){
+        $this->db->select('*');
+        $this->db->from('ourconnecttb');
+        $query = $this->db->get();
+        return $query->result();
+    }
 }

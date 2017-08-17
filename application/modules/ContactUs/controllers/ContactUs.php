@@ -3,10 +3,21 @@ class ContactUs extends MY_Controller{
 	function __construct(){
 		parent::__construct();
 		$this->load->module(['Templates', 'ContactUs', 'SignUp']);
-		$this->load->model(['M_ContactUs']);
+		$this->load->model(['M_ContactUs', 'M_Admin']);
 	}
 
 	function index($data = NULL){
+		$connect = $this->M_Admin->getConnect();
+
+        foreach ($connect as $key => $value) {
+            $data['phone1'] = $value->phone1;
+            $data['phone2'] = $value->phone2;
+            $data['email'] = $value->email;
+            $data['facebook'] = $value->facebook;
+            $data['instagram'] = $value->instagram;
+            $data['googleplus'] = $value->googleplus;
+            $data['twitter'] = $value->twitter;
+        }
 		$data['header'] = 'Contact Us';
 		$data['response'] = $this->session->flashdata('success');
 		$this->templates->call_contacts_template($data);

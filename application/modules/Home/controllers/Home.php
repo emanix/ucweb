@@ -6,11 +6,22 @@ class Home extends MY_Controller{
     {
         parent::__construct();
         $this->load->module(['Templates', 'ContactUs', 'SignUp']);
-        $this->load->model(['M_Home', 'M_Events']);
+        $this->load->model(['M_Home', 'M_Events', 'M_Admin']);
         
     }
 
     function index($data = NULL){
+      $connect = $this->M_Admin->getConnect();
+
+        foreach ($connect as $key => $value) {
+            $data['phone1'] = $value->phone1;
+            $data['phone2'] = $value->phone2;
+            $data['email'] = $value->email;
+            $data['facebook'] = $value->facebook;
+            $data['instagram'] = $value->instagram;
+            $data['googleplus'] = $value->googleplus;
+            $data['twitter'] = $value->twitter;
+        }
       $data['bannerSlider'] = $this->bannerSlider();
       $data['events_table'] = $this->eventsTable();
       $data['welcome_message'] = $this->welcomeAddress();

@@ -31,4 +31,8 @@ class M_SignUp extends CI_Model{
 	function insertUser($data){
 		$this->db->insert('userstb', $data);
 	}
+
+	function insertSubscribe($data){
+		$this->db->insert('subscribetb', $data);
+	}
 }

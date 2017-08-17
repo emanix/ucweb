@@ -32,8 +32,8 @@
 					<li><a href="#" data-toggle="modal" data-target="#myModal3"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Sign Up</a> </li>
 				</ul>
 				<ul>
-					<li><i class="fa fa-phone" aria-hidden="true"></i>+234 706 463 7363, +234 703 084 6612</li>
-					<li><i class="fa fa-envelope" aria-hidden="true"></i><a href="mailto:info@unitychoraleng.org">info@unitychoraleng.org</a></li>
+					<li><i class="fa fa-phone" aria-hidden="true"></i><?php echo $phone1; ?>, <?php echo $phone2; ?></li>
+					<li><i class="fa fa-envelope" aria-hidden="true"></i><a href="mailto:info@unitychoraleng.org"><?php echo $email; ?></a></li>
 				</ul>
 				<div class="clearfix"> </div>
 			</div>
@@ -60,10 +60,10 @@
 						</ul>
 						<div class="w3_agileits_search">
 							<ul class="social_agileinfo">
-								<li><a href="#" class="w3_facebook"><i class="fa fa-facebook"></i></a></li>
-								<li><a href="#" class="w3_twitter"><i class="fa fa-twitter"></i></a></li>
-								<li><a href="#" class="w3_instagram"><i class="fa fa-instagram"></i></a></li>
-								<li><a href="#" class="w3_google"><i class="fa fa-google-plus"></i></a></li>
+								<li><a href="<?php echo $facebook; ?>" class="w3_facebook"><i class="fa fa-facebook"></i></a></li>
+								<li><a href="<?php echo $twitter; ?>" class="w3_twitter"><i class="fa fa-twitter"></i></a></li>
+								<li><a href="<?php echo $instagram; ?>" class="w3_instagram"><i class="fa fa-instagram"></i></a></li>
+								<li><a href="<?php echo $googleplus; ?>" class="w3_google"><i class="fa fa-google-plus"></i></a></li>
 							</ul>
 						</div>
 					</nav>
@@ -175,15 +175,15 @@
 			<div class="col-md-4 w3layouts_footer_grid">
 				<h2>Follow <span>Us</span></h2>
 				<ul class="social_agileinfo">
-					<li><a href="#" id="w3_facebook"><i class="fa fa-facebook"></i></a></li>
-					<li><a href="#" id="w3_twitter"><i class="fa fa-twitter"></i></a></li>
-					<li><a href="#" id="w3_instagram"><i class="fa fa-instagram"></i></a></li>
-					<li><a href="#" id="w3_google"><i class="fa fa-google-plus"></i></a></li>
+					<li><a href="<?php echo $facebook; ?>" id="w3_facebook"><i class="fa fa-facebook"></i></a></li>
+					<li><a href="<?php echo $twitter; ?>" id="w3_twitter"><i class="fa fa-twitter"></i></a></li>
+					<li><a href="<?php echo $instagram; ?>" id="w3_instagram"><i class="fa fa-instagram"></i></a></li>
+					<li><a href="<?php echo $googleplus; ?>" id="w3_google"><i class="fa fa-google-plus"></i></a></li>
 				</ul>
 			</div>
 			<div class="col-md-8 w3layouts_footer_grid">
-				<form action="#" method="post">
-					<input type="email" name="Email" placeholder="Email..." required="">
+				<form action="<?php echo base_url(); ?>Users/subscribeNews" method="post">
+					<input type="email" name="Email" placeholder="Enter Email to subscribe for our news letters" required="">
 					<input type="submit" value="">
 				</form>
 				<ul class="w3l_footer_nav">

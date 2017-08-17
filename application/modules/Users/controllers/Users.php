@@ -80,4 +80,14 @@ class Users extends MY_Controller{
         $this->templates->call_users_template($data);
 
 	}
+
+    function subscribeNews(){
+        if($this->input->post()){
+            $data['email'] = $this->input->post('Email');
+            $this->M_SignUp->insertSubscribe($data);
+
+            $this->session->set_flashdata('success', 'You have successfully subscribed for news letters');
+            redirect(base_url().'SignUp/signUpFeedback');
+        }
+    }
 }

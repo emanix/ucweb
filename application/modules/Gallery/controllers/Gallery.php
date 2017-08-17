@@ -3,10 +3,21 @@ class Gallery extends MY_Controller{
 	function __construct(){
 		parent::__construct();
 		$this->load->module(['Templates', 'ContactUs', 'SignUp']);
-		$this->load->model(['M_Gallery']);
+		$this->load->model(['M_Gallery', 'M_Admin']);
 	}
 
 	function index($data = NULL){
+		$connect = $this->M_Admin->getConnect();
+
+        foreach ($connect as $key => $value) {
+            $data['phone1'] = $value->phone1;
+            $data['phone2'] = $value->phone2;
+            $data['email'] = $value->email;
+            $data['facebook'] = $value->facebook;
+            $data['instagram'] = $value->instagram;
+            $data['googleplus'] = $value->googleplus;
+            $data['twitter'] = $value->twitter;
+        }
 		$data['header'] = 'Gallery';
 		$data['gallery'] = $this->getPhotos();
 		$this->templates->call_gallery_template($data);
