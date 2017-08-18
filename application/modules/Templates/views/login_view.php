@@ -28,13 +28,13 @@
 	<div id="header-wrapper">
 		<div id="logo">
 			<img src="<?php echo base_url(); ?>assets/images/unity_chorale_logo.jpg" alt="Unity Chorale Logo">
-			<span><h3>UNITY CHORALE NIGERIA MEMBERS LOGIN</h3></span>
+			<span><h3>UNITY CHORALE NIGERIA ADMIN LOGIN</h3></span>
 		</div>
 	</div>
   <div class="body"></div>
 		<div class="grad"></div>
 		<div class="header">
-			<div class="headers">Members Login</div>
+			<div class="headers">Admin Login</div>
 		</div>
     <div class="error-messages">
     <?php if (validation_errors() !="") {?>
