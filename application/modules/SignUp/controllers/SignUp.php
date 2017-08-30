@@ -164,16 +164,29 @@ class SignUp extends MY_Controller{
 			$venue = $_GET["venue"];
 		}
 
-		/*$message = "Dear " .$firstname. ", you are hereby invited for an auditioning with the music director of Unity Chorale Nigeria as followings: Venue: " .$venue. ", Date: " .$date. ", Time: " .$time. ".";
+		$message = "
+	      <html>
+	      <head>
+	      <title></title>
+	      </head>
+	      <body>
+	      <h3>Dear Dear " .$firstname. "</h3>
+	      <p>You are hereby invited for an auditioning with the music director of Unity Chorale Nigeria as followings: Venue: " .$venue. ", Date: " .$date. ", Time: " .$time. ".</p>
+	      </body>
+	      </html>
+	    ";
+
+		/*$message = "Dear " .$firstname. ", you are hereby invited for an auditioning with the music director of Unity Chorale Nigeria as followings: Venue: " .$venue. ", Date: " .$date. ", Time: " .$time. ".";*/
 		$this->load->library('email');
 
+		$this->email->mailtype('html');
 		$this->email->from('info@unitychoraleng.org', 'Unity Chorale');
 		$this->email->to($email);
 
 		$this->email->subject('Call for Auditioning');
 		$this->email->message($message);
 
-		$this->email->send();*/
+		$this->email->send();
 
 		$this->session->set_flashdata('successful', 'Invitation has been successfully sent');
 		redirect(base_url().'SignUp/processSignups');

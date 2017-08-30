@@ -107,16 +107,24 @@ class ContactUs extends MY_Controller{
 	function sendMessage(){
 		if($this->input->post()){
 			$this->load->library('email');
-			$config = Array(
-			  'mailtype' => 'html'
-			);
-
-			$this->email->initialize($config);
-			
+			$message = "
+	            <html>
+	            <head>
+	            <title></title>
+	            </head>
+	            <body>
+	            <h3>Dear ". $this->session->userdata('senders_name') ."</h3>
+	            <p>". $this->input->post('message', TRUE) ."</p>
+	            </body>
+	            </html>
+	        ";
+	        
+			$this->email->mailtype('html');
 	        $this->email->from('noreply@unitychoraleng.org', 'Unity Chorale');
 			$this->email->to($this->session->userdata('email'));
 	        $this->email->subject('Re: '.$this->session->userdata('subject').'');
-	        $this->email->message('Dear '.$this->session->userdata('senders_name').', ' .$this->input->post('message'));
+	        $this->email->message($message);
+	        
 	        $this->email->send();
 		}
 		$this->session->set_flashdata('success', 'Your Message has been sent');
