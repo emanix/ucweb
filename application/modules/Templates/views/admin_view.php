@@ -219,6 +219,9 @@
                             <a href="<?php echo base_url(); ?>Repertoire/viewRepertoire"><i class="material-icons">view_list</i><span>View Repertoire</span></a>
                           </li>
                         </ul>
+                    </li>
+                    <li>
+                        <a href="<?php echo base_url(); ?>Admin/ViewMembers"><i class="material-icons">view_list</i><span>View Members</span></a>
                     </li>       
                 </ul>
             </div>

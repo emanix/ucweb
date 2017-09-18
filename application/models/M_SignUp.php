@@ -34,5 +34,11 @@ class M_SignUp extends CI_Model{
 
 	function insertSubscribe($data){
 		$this->db->insert('subscribetb', $data);
+		return $this->db->insert_id();
+	}
+
+	function deleteSubscribe($id){
+		$this->db->where('subs_id', $id);
+		$this->db->delete('subscribetb');
 	}
 }

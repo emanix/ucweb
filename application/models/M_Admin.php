@@ -22,6 +22,11 @@ class M_Admin extends CI_Model{
         return $query->result();
     }
 
+    function deleteBanner($id){
+        $this->db->where('banner_id', $id);
+        $this->db->delete('bannertb');
+    }
+
     function insertConnect($data){
         $this->db->update('ourconnecttb', $data);
     }
@@ -29,6 +34,14 @@ class M_Admin extends CI_Model{
     function getConnect(){
         $this->db->select('*');
         $this->db->from('ourconnecttb');
+        $query = $this->db->get();
+        return $query->result();
+    }
+
+    function getMembers(){
+        $this->db->select('*');
+        $this->db->from('userstb');
+        $this->db->order_by('part', 'ASC');
         $query = $this->db->get();
         return $query->result();
     }

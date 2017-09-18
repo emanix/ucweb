@@ -169,7 +169,18 @@ class Home extends MY_Controller{
       return $services;
     }
 
-    function Feedback(){
+  function Feedback(){
+    $connect = $this->M_Admin->getConnect();
+
+      foreach ($connect as $key => $value) {
+        $data['phone1'] = $value->phone1;
+        $data['phone2'] = $value->phone2;
+        $data['email'] = $value->email;
+        $data['facebook'] = $value->facebook;
+        $data['instagram'] = $value->instagram;
+        $data['googleplus'] = $value->googleplus;
+        $data['twitter'] = $value->twitter;
+      }
     $data['header'] = 'Feedback';
     $data['success'] = $this->session->flashdata('failed');
     $this->templates->call_single_template($data);

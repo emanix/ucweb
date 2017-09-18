@@ -162,7 +162,7 @@
 				<div class="col-md-7 wthree_services_grid_left">
 					<?php echo $about; ?>
 				</div>
-				<div class="col-md-5 wthree_services_grid_right" style="background: url(<?php echo base_url(); ?>assets/dist_web/images/ghana.jpg); min-height: 350px;">
+				<div class="col-md-5 wthree_services_grid_right" style="background: url(<?php echo base_url(); ?>assets/dist_web/images/ghan.jpg); min-height: 350px;">
 					
 					<div class="clearfix"> </div>
 				</div>

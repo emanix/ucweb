@@ -120,12 +120,12 @@
             <div class="menu">
                 <ul class="list">
                     <li class="header">MAIN NAVIGATION</li>
-                    <li>
+                    <!--<li>
                         <a href="<?php echo base_url(); ?>Users">
                           <i class="material-icons">dashboard</i>
                           <span>Dashboard</span>
                         </a>
-                    </li>
+                    </li>-->
                     <li>
                         <a target="_blank" href="<?php echo base_url(); ?>Home">
                           <i class="material-icons">home</i>

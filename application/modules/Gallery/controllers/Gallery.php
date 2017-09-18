@@ -156,6 +156,16 @@ class Gallery extends MY_Controller{
 	}
 
 	function deletePhoto($id){
+		$images = $this->M_Gallery->getPhotoId($id);
+		$this->load->helper('file');
+		//$files = $_FILES;
+		foreach ($images as $key => $value) {
+			$path = $value->image_path;
+			
+		}
+		//print_r($path); die;
+		//chmod($path, 0777);
+		unlink($path);
 		$this->M_Gallery->deletePhoto($id);
 		$this->session->set_flashdata('success', 'Photo deleted successfully');
 		redirect(base_url().'Gallery/viewGallery');

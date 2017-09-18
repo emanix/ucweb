@@ -124,6 +124,7 @@ class ContactUs extends MY_Controller{
 			$this->email->to($this->session->userdata('email'));
 	        $this->email->subject('Re: '.$this->session->userdata('subject').'');
 	        $this->email->message($message);
+	        $this->email->set_mailtype("html");
 	        
 	        $this->email->send();
 		}

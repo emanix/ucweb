@@ -9,9 +9,24 @@ class Users extends MY_Controller{
 	}
 
 	function index($data = NULL){
+        $repertoire = $this->M_Repertoire->getRepertoire();
 
-		$data['page_title'] = 'Dashboard';
-        $data['content_view'] = 'Users/dashboard_view';
+        $repertoire_table = "";
+
+        if (count($repertoire)>0){
+            $incrementer = 1;
+            foreach ($repertoire as $key => $value) {
+                $repertoire_table .="<tr>";
+                $repertoire_table .="<td>{$incrementer}</td>";
+                $repertoire_table .="<td>{$value->song_title}</td>";
+                $repertoire_table .="<td>{$value->genre}</td>";
+                $repertoire_table .="<td><a target='_blank' href='".base_url()."{$value->file_path}'><button type='button' class='btn bg-blue waves-effect'><i class='material-icons'>file_download</i>  Download</button></a></td>";
+                $incrementer++;
+            }
+        }
+		$data['page_title'] = /*'Dashboard'*/'List of Available Songs';
+        $data['repert_table'] = $repertoire_table;
+        $data['content_view'] = 'Repertoire/view_repertoire_view';
         $this->templates->call_users_template($data);
 	}
 
@@ -84,10 +99,45 @@ class Users extends MY_Controller{
     function subscribeNews(){
         if($this->input->post()){
             $data['email'] = $this->input->post('Email');
-            $this->M_SignUp->insertSubscribe($data);
+            $email = $this->input->post('Email');
+            $id = $this->M_SignUp->insertSubscribe($data);
 
-            $this->session->set_flashdata('success', 'You have successfully subscribed for news letters');
-            redirect(base_url().'SignUp/signUpFeedback');
+            $link = "http://www.unitychoraleng.org/Users/unsubscribeNews/".$id;
+            
+            /*$message = "
+          <html>
+          <head>
+          <title></title>
+          </head>
+          <body>
+          <h3>Subscription successful</h3>
+          <p>You have successfully subscribed for Unity Chorale's news letters, thank you for subscribing for our letters.</p>
+          <p>If you did not authorise this action, click <a target='__blank' href='{$link}'>here</a> to unsubscribe.</p>
+          </body>
+          </html>
+        ";
+
+        $this->load->library('email');
+
+        $this->email->mailtype('html');
+        $this->email->from('info@unitychoraleng.org', 'Unity Chorale');
+        $this->email->to($email);
+
+        $this->email->subject('News letter subscription');
+        $this->email->message($message);
+        $this->email->set_mailtype("html");
+
+        $this->email->send();*/
+
+        $this->session->set_flashdata('success', 'You have successfully subscribed for news letters');
+        redirect(base_url().'SignUp/signUpFeedback');
         }
+    }
+
+    function unsubscribeNews($id){
+        $this->load->model(array('M_SignUp'));
+        $this->M_SignUp->deleteSubscribe($id);
+        $this->session->set_flashdata('success', 'You have successfully unsubscribed for our news letters');
+        redirect(base_url().'SignUp/signUpFeedback');
     }
 }

@@ -2,7 +2,7 @@
 class SignUp extends MY_Controller{
 	function __construct(){
 		parent::__construct();
-		$this->load->model('M_SignUp');
+		$this->load->model(['M_SignUp', 'M_Admin']);
 		$this->load->module(['Templates', 'ContactUs']);
 	}
 
@@ -57,6 +57,17 @@ class SignUp extends MY_Controller{
 	}
 
 	function signUpFeedback(){
+		$connect = $this->M_Admin->getConnect();
+
+        foreach ($connect as $key => $value) {
+            $data['phone1'] = $value->phone1;
+            $data['phone2'] = $value->phone2;
+            $data['email'] = $value->email;
+            $data['facebook'] = $value->facebook;
+            $data['instagram'] = $value->instagram;
+            $data['googleplus'] = $value->googleplus;
+            $data['twitter'] = $value->twitter;
+        }
 		$data['header'] = 'Feedback';
 		$data['success'] = $this->session->flashdata('success');
 		$this->templates->call_single_template($data);
@@ -185,6 +196,7 @@ class SignUp extends MY_Controller{
 
 		$this->email->subject('Call for Auditioning');
 		$this->email->message($message);
+		$this->email->set_mailtype("html");
 
 		$this->email->send();
 
@@ -219,7 +231,19 @@ class SignUp extends MY_Controller{
 		//Add approved signup to users table
 		$this->M_SignUp->insertUser($data);
 
-		/*$message = "Dear " .$firstname. ", congratulation on the successful completion of your auditioning, your membership into Unity Chorale Nigeria is officially confirmed by this email. Your login details into the group page are as follows: username: " .$username. ", password: " .$pass. ".";
+		$message = "
+	      <html>
+	      <head>
+	      <title></title>
+	      </head>
+	      <body>
+	      <h3>Dear Dear " .$firstname. "</h3>
+	      <p>Congratulation on the successful completion of your auditioning, your membership into Unity Chorale Nigeria is officially confirmed by this email. Your login details into the group page are as follows: username: " .$username. ", password: " .$pass. ".</p>
+	      </body>
+	      </html>
+	    ";
+
+		/*$message = "Dear " .$firstname. ", congratulation on the successful completion of your auditioning, your membership into Unity Chorale Nigeria is officially confirmed by this email. Your login details into the group page are as follows: username: " .$username. ", password: " .$pass. ".";*/
 		$this->load->library('email');
 
 		$this->email->from('info@unitychoraleng.org', 'Unity Chorale');
@@ -227,8 +251,9 @@ class SignUp extends MY_Controller{
 
 		$this->email->subject('Welcome to Unity Chorale');
 		$this->email->message($message);
+		$this->email->set_mailtype("html");
 
-		$this->email->send();*/
+		$this->email->send();
 		$this->M_SignUp->deleteSignup($id);
 		print_r($pass); die;
 		$this->session->set_flashdata('successful', 'Signup has been successfully approved');

@@ -10,9 +10,9 @@
             </div>
         <?php } ?>
 
-        <?php if (isset($_SESSION['success'])) {?>
+        <?php if (isset($_SESSION['successful'])) {?>
             <div class="alert alert-success">
-                <?php  echo $_SESSION['success'];?>
+                <?php  echo $_SESSION['successful'];?>
             </div>
         <?php } ?>
 
@@ -22,41 +22,35 @@
             </div>
         <?php } ?>
       <div class="body">
-      	<table class="table table-bordered table-striped table-hover js-basic-example dataTable">
+        <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
             <thead>
                 <tr>
-                  <th>Serial No</th>
-                  <th>Banner Title</th>
-                  <th>Banner Image</th>
-                  <th></th>
-                  <th></th>
+                  <th>First Name</th>
+                  <th>Last Name</th>
+                  <th>Email</th>
+                  <th>Phone Number</th>
+                  <th>Gender</th>
+                  <th>Music Quality</th>
+                  <th>Part</th>
+                  <th>Instrument</th>
+                  <th>Denomination</th>
                 </tr>
             </thead>
-                
-            <tfoot>
-                <tr>
-                  <th>Serial No</th>
-                  <th>Banner Title</th>
-                  <th>Banner Image</th>
-                  <th></th>
-                  <th></th>
-                </tr>
-            </tfoot>
             <tbody>
                 <?php
-                if ($banner_table !== "" )
+                if ($members_table !== "" )
                 {
-                   echo $banner_table;
+                   echo $members_table;
                 }
                 else{
                 ?>
                   <tr>
-                    <td colspan="4"><center><h4>No banner to display</h4></center></td>
+                    <td colspan="11"><center><h4>No Member available</h4></center></td>
                   </tr>
-               	<?php } ?>
+                <?php } ?>
             </tbody>
         </table>
-        </div>
+      </div>
     </div>
   </div>
 </div>

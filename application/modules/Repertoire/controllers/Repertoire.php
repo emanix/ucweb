@@ -68,6 +68,7 @@ class Repertoire extends MY_Controller{
                 $repertoire_table .="<td>{$value->song_title}</td>";
 				$repertoire_table .="<td>{$value->genre}</td>";
 				$repertoire_table .="<td><a target='_blank' href='".base_url()."{$value->file_path}'><button type='button' class='btn bg-blue waves-effect'><i class='material-icons'>file_download</i>  Download</button></a></td>";
+				$repertoire_table .="<td><a href='".base_url()."Repertoire/deleteSong/{$value->song_id}'><i>Drop song</i></a></td>";
 				$incrementer++;
 			}
 		}
@@ -103,5 +104,19 @@ class Repertoire extends MY_Controller{
         $data['content_view'] = 'Repertoire/view_repertoire_view';
         $this->templates->call_users_template($data);
 
+	}
+
+	function deleteSong($id){
+		$song = $this->M_Repertoire->getRepertoireId($id);
+		$this->load->helper('file');
+		
+		foreach ($song as $key => $value) {
+			$path = $value->file_path;
+			
+		}
+		unlink($path);
+		$this->M_Repertoire->deleteRepertoire($id);
+		$this->session->set_flashdata('success', 'Song deleted successfully');
+		redirect(base_url().'Repertoire/viewRepertoire');
 	}
 }

@@ -40,6 +40,7 @@ class Admin extends MY_Controller{
                 $banner_table .="<td>{$value->title}</td>";
 				$banner_table .="<td><img src='{$image_thumb}' width='180' height='81'/></td>";
 				$banner_table .="<td><a href='".base_url()."Admin/change_banner/{$value->banner_id}'><i>Edit Banner</i></a></td>";
+                $banner_table .="<td><a href='".base_url()."Admin/delete_banner/{$value->banner_id}'><i>Drop Banner</i></a></td>";
 				$incrementer++;
 			}
 		}
@@ -66,6 +67,23 @@ class Admin extends MY_Controller{
         $data['signups'] = count($this->signup->countSignups());
         $data['content_view'] = 'Admin/update_banner_view';
         $this->templates->call_admin_template($data);
+    }
+
+    function delete_banner($id){
+        $images = $this->M_Admin->getBannerId($id);
+        $this->load->helper('file');
+        //$files = $_FILES;
+        foreach ($images as $key => $value) {
+            $path = $value->image_path;
+            $thumb_path = $value->image_thumb_path;
+        }
+        //print_r($path); die;
+        //chmod($path, 0777);
+        unlink($path);
+        unlink($thumb_path);
+        $this->M_Admin->deleteBanner($id);
+        $this->session->set_flashdata('success', 'Banner deleted successfully');
+        redirect(base_url().'Admin/edit_banner');
     }
 
 	function add_banner(){
@@ -251,6 +269,35 @@ class Admin extends MY_Controller{
             $this->session->set_flashdata('success', 'Contact updated successfully');
             redirect(base_url().'Admin/addConnectsView');
         }
+    }
+
+    function viewMembers(){
+        $members = $this->M_Admin->getMembers();
+
+        $member_table = "";
+
+        if (count($members)>0){
+            //$incrementer = 1;
+            foreach ($members as $key => $value) {
+                $member_table .="<tr>";
+                $member_table .="<td>{$value->lname}</td>";
+                $member_table .="<td>{$value->fname}</td>";
+                $member_table .="<td>{$value->email}</td>";
+                $member_table .="<td>{$value->phone}</td>";
+                $member_table .="<td>{$value->gender}</td>";
+                $member_table .="<td>{$value->music_quality}</td>";
+                $member_table .="<td>{$value->part}</td>";
+                $member_table .="<td>{$value->musical_skill}</td>";
+                $member_table .="<td>{$value->denomination}</td>";
+                //$incrementer++;
+            }
+        }
+        $data['page_title'] = 'List of members';
+        $data['members_table'] = $member_table;
+        $data['unread'] = count($this->contactus->unreadMessages());
+        $data['signups'] = count($this->signup->countSignups());
+        $data['content_view'] = 'Members/view_members_view';
+        $this->templates->call_admin_template($data);
     }
 
 }
