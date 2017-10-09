@@ -22,6 +22,14 @@ class Home extends MY_Controller{
             $data['googleplus'] = $value->googleplus;
             $data['twitter'] = $value->twitter;
         }
+
+      $events = $this->M_Events->getEvents();
+      foreach ($events as $key => $value) {
+        if($value->event_date < date("Y-m-d")){
+          $this->M_Events->deleteEvent($value->eventid);
+        }
+      }
+
       $data['bannerSlider'] = $this->bannerSlider();
       $data['events_table'] = $this->eventsTable();
       $data['welcome_message'] = $this->welcomeAddress();
@@ -62,6 +70,10 @@ class Home extends MY_Controller{
           $table .= "<td><h4><a href='#'>{$value->event_info}</a></h4></td>";
           $table .= "</tr>";
         }
+      }else{
+        $table .= "<tr>";
+        $table .= "<td><h2>Events coming soon</h2></td>";
+        $table .= "</tr>";
       }
       return $table;
     }

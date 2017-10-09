@@ -49,7 +49,7 @@ class Login extends MY_Controller{
                     foreach ($userdetails as $key => $value) {
                         // Redirect to Administrators page
 
-                        if ($value->role == 'admin') {
+                        if ($value->role == 'admin' || $value->role == 'pro') {
                             $this->session->set_userdata(array(
                             'user_id' => $value->ID,
                             'user_role' => $value->role,

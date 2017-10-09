@@ -51,6 +51,32 @@ class SignUp extends MY_Controller{
 			
 			
 			$this->M_SignUp->insertSignup($data);
+
+			$message = "
+	      <html>
+	      <head>
+	      <title></title>
+	      </head>
+	      <body>
+	      <h3>New Signup</h3>
+	      <p>You have a new signup on Unity Chorale website awaiting approval.</p>
+	      </body>
+	      </html>
+	    ";
+
+		
+		$this->load->library('email');
+
+		
+		$this->email->from('info@unitychoraleng.org', 'Unity Chorale');
+		$this->email->to('emanixworld@gmail.com');
+
+		$this->email->subject('New Signup');
+		$this->email->message($message);
+		$this->email->set_mailtype("html");
+
+		$this->email->send();
+
 			$this->session->set_flashdata('success', 'Sign up successful, you will be notified via email when your application has been processed');
 		}
 		$this->signUpFeedback();
