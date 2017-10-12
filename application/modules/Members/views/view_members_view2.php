@@ -27,13 +27,7 @@
                 <tr>
                   <th>First Name</th>
                   <th>Last Name</th>
-                  <th>Email</th>
-                  <th>Phone Number</th>
-                  <th>Gender</th>
-                  <th>Music Quality</th>
-                  <th>Part</th>
-                  <th>Instrument</th>
-                  <th>Denomination</th>
+                  <th></th>
                 </tr>
             </thead>
             <tbody>
@@ -50,7 +44,6 @@
                 <?php } ?>
             </tbody>
         </table>
-        <a href="<?php echo base_url(); ?>Admin/viewMember"><button type="button" class="btn bg-blue waves-effect">Process Password Reset</button></a>
       </div>
     </div>
   </div>

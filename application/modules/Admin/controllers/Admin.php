@@ -300,4 +300,69 @@ class Admin extends MY_Controller{
         $this->templates->call_admin_template($data);
     }
 
+    function viewMember(){
+        $members = $this->M_Admin->getMembers();
+
+        $member_table = "";
+
+        if (count($members)>0){
+            //$incrementer = 1;
+            foreach ($members as $key => $value) {
+                $member_table .="<tr>";
+                $member_table .="<td>{$value->lname}</td>";
+                $member_table .="<td>{$value->fname}</td>";
+                $member_table .="<td><a href='".base_url()."Admin/passwordReset/{$value->user_id}'><i>Reset Password</i></a></td>";
+                //$incrementer++;
+            }
+        }
+        $data['page_title'] = 'List of members';
+        $data['members_table'] = $member_table;
+        $data['unread'] = count($this->contactus->unreadMessages());
+        $data['signups'] = count($this->signup->countSignups());
+        $data['content_view'] = 'Members/view_members_view2';
+        $this->templates->call_admin_template($data);
+    }
+
+    function passwordReset($id){
+        $this->load->helper('string');
+        $pass = random_string('alnum', 8);
+        $password = sha1($pass);
+
+        $data = array('password' => $password);
+        $this->M_Admin->updateUserPassword($id, $data);
+        $member = $this->M_Admin->getMembersById($id);
+
+        foreach ($member as $key => $value) {
+           $firstname = $value->fname;
+           $email = $value->email; 
+        }
+
+        /*$message = "
+          <html>
+          <head>
+          <title></title>
+          </head>
+          <body>
+          <h3>Dear " .$firstname. "</h3>
+          <p>Your request for password reset has been processed, and your log in password is: " .$pass. ".</p>
+          </body>
+          </html>
+        ";
+
+        $this->load->library('email');
+
+        $this->email->from('info@unitychoraleng.org', 'Unity Chorale');
+        $this->email->to($email);
+
+        $this->email->subject('Password Reset');
+        $this->email->message($message);
+        $this->email->set_mailtype("html");
+
+        $this->email->send();*/
+        
+        print_r($pass); die;
+        $this->session->set_flashdata('successful', 'Password reset was successful');
+        redirect(base_url().'Admin/viewMember');
+    }
+
 }

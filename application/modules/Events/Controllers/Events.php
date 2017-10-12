@@ -31,6 +31,11 @@ class Events extends MY_Controller{
 	function viewEvents(){
 		$this->load->model('M_Events');
 		$events = $this->M_Events->getEvents();
+		foreach ($events as $key => $value) {
+	        if($value->event_date < date("Y-m-d")){
+	          $this->M_Events->deleteEvent($value->eventid);
+	        }
+      	}
 
 		$event_table = "";
 

@@ -269,7 +269,6 @@ class SignUp extends MY_Controller{
 	      </html>
 	    ";
 
-		/*$message = "Dear " .$firstname. ", congratulation on the successful completion of your auditioning, your membership into Unity Chorale Nigeria is officially confirmed by this email. Your login details into the group page are as follows: username: " .$username. ", password: " .$pass. ".";*/
 		$this->load->library('email');
 
 		$this->email->from('info@unitychoraleng.org', 'Unity Chorale');

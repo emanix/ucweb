@@ -45,4 +45,17 @@ class M_Admin extends CI_Model{
         $query = $this->db->get();
         return $query->result();
     }
+
+    function getMembersById($id){
+        $this->db->select('*');
+        $this->db->from('userstb');
+        $this->db->where('user_id', $id);
+        $query = $this->db->get();
+        return $query->result();
+    }
+
+    function updateUserPassword($id, $data){
+        $this->db->where('user_id', $id);
+        $this->db->update('userstb', $data);
+    }
 }
