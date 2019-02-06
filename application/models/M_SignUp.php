@@ -58,6 +58,14 @@ class M_SignUp extends CI_Model{
 		$query = $this->db->get();
 		return $query->result();
 	}
+	
+	function getSubscriberByemail($email){
+		$this->db->select('*');
+		$this->db->from('subscribetb');
+		$this->db->where('email', $email);
+		$query = $this->db->get();
+		return $query->result();
+	}
 
 	function deleteSubscribe($id){
 		$this->db->where('subs_id', $id);

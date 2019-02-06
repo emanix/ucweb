@@ -26,7 +26,7 @@
             <div class="body">
                   <form method="POST" class="form_vertical" action = "<?php echo base_url(); ?>Home/updateServices" enctype="multipart/form-data">
                     <div class="row clearfix">
-                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                             <div class="form-group">
                             <div class="form-line">
                               <label>Service Heading</label>
@@ -34,10 +34,12 @@
                               <input type="hidden" class="form-control" name="serviceid" value="<?php echo $serviceid; ?>">
                             </div>
                           </div>
-                        </div>
-                        <div class="body">
-                              <h2 class="card-inside-title">Service Details</h2>
-                              <div class="row clearfix">
+                          <div class="body">
+                          <h2 class="card-inside-title">Service Details</h2>
+                          <textarea id="ckeditor" name="service">
+                                <?php echo $service; ?>
+                          </textarea>
+                              <!--<div class="row clearfix">
                                 <div class="col-sm-6">
                                   <div class="form-group">
                                     <div class="form-line">
@@ -45,8 +47,10 @@
                                     </div>
                                   </div>
                                 </div>
-                              </div>
+                              </div>-->
                         </div>
+                        </div>
+                        
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                           <button type="submit" class="btn btn-primary btn-lg m-l-15 waves-effect">Update</button>
                         </div>

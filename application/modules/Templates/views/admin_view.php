@@ -8,7 +8,7 @@
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <title>Unity Chorale | Admin Page</title>
+    <title>Cyrilweb | Admin</title>
     <!-- UCicon-->
     <link rel="icon" href="<?php echo base_url(); ?>assets/images/unity_choralelogo.ico" type="image/x-icon">
 
@@ -87,8 +87,8 @@
             <div class="navbar-header">
                 <a href="javascript:void(0);" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false"></a>
                 <a href="javascript:void(0);" class="bars"></a>
-                <img style="float: left; padding-right: 10px" src="<?php echo base_url(); ?>assets/images/unity_chorale_logo1.jpg" alt="Unity Chorale logo" />
-                <a class="navbar-brand" href="#">UNITY CHORALE ADMINISTRATIVE PAGE</a>
+                <!--<img style="float: left; padding-right: 10px" src="<?php echo base_url(); ?>asset/cweb/images/iitas.png" alt="IITA Logo" />-->
+                <a class="navbar-brand" href="#">ADMINISTRATIVE PAGE</a>
             </div>
             
         </div>
@@ -139,34 +139,23 @@
                         </a>
                         <ul class="ml-menu">
                           <li>
-                            <a href="<?php echo base_url(); ?>Admin/manage_banner"><i class="material-icons">wallpaper</i><span>Add banner</span></a>
-                          </li>
-                          <li>
-                            <a href="<?php echo base_url(); ?>Admin/edit_banner"><i class="material-icons">view_list</i><span>View banner</span></a>
-                          </li>
-                          <li>
                             <a href="javascript:void(0);" class="menu-toggle"><i class="material-icons">laptop</i><span>Manage content</span></a>
                             <ul class="ml-menu">
                               <li>
                                 <a href="<?php echo base_url(); ?>Home/editWelcome"><i class="material-icons">create</i><span>Edit Welcome</span></a>
                               </li>
                               <li>
-                                <a href="<?php echo base_url(); ?>Events/addEvents"><i class="material-icons">add_box</i><span>Add Events</span></a>
-                              </li>
-                              <li>
                                 <a href="<?php echo base_url(); ?>Admin/addConnectsView"><i class="material-icons">add_box</i><span>Add Contacts</span></a>
                               </li>
                               <li>
-                                <a href="<?php echo base_url(); ?>Events/viewEvents"><i class="material-icons">view_list</i><span>View Events</span></a>
+                                <a href="<?php echo base_url(); ?>Services/add_service_v"><i class="material-icons">add_box</i><span>Add Services</span></a>
                               </li>
-                              <li>
-                                <a href="<?php echo base_url(); ?>Home/getServices"><i class="material-icons">view_list</i><span>View Services</span></a>
-                              </li>
+                              
                             </ul> 
                           </li>
                         </ul>
                     </li>
-                    <li>
+                    <!--<li>
                         <a href="javascript:void(0);" class="menu-toggle">
                           <i class="material-icons">laptop</i>
                           <span>Manage AboutUs Page</span>
@@ -179,22 +168,28 @@
                             <a href="<?php echo base_url(); ?>AboutUs/view_team"><i class="material-icons">view_list</i><span>View Team</span></a>
                           </li>
                         </ul> 
-                     </li>
+                     </li>-->
                      <li>
                         <a href="javascript:void(0);" class="menu-toggle">
                           <i class="material-icons">laptop</i>
-                          <span>Manage Gallery</span>
+                          <span>Manage Services</span>
                         </a>
                         <ul class="ml-menu">
                           <li>
-                            <a href="<?php echo base_url(); ?>Gallery/addPhotoView"><i class="material-icons">add_box</i><span>Add Photo</span></a>
+                              <a href="<?php echo base_url(); ?>Home/getServices"><i class="material-icons">view_list</i><span>View Services</span></a>
                           </li>
                           <li>
-                            <a href="<?php echo base_url(); ?>Gallery/viewGallery"><i class="material-icons">view_list</i><span>View Gallery</span></a>
+                            <a href="<?php echo base_url(); ?>Services/add_servicetypes"><i class="material-icons">add_box</i><span>Add Service Types</span></a>
+                          </li>
+                          <li>
+                            <a href="<?php echo base_url(); ?>Services/set_service_price_p"><i class="material-icons">settings</i><span>Set Service Prices</span></a>
+                          </li>
+                          <li>
+                            <a href="<?php echo base_url(); ?>Services/view_service_prices"><i class="material-icons">view_list</i><span>View Service Prices</span></a>
                           </li>
                         </ul> 
                      </li>
-                     <li>
+                     <!--<li>
                         <a href="<?php echo base_url(); ?>ContactUs/viewMessages">
                           <i class="material-icons">inbox</i>
                           <span>Messages<?php if($unread != ""){ ?><span class="bg-light-blue" style="color:white; padding: 5px"><?php echo $unread; } ?> Unread</span></span>
@@ -237,7 +232,7 @@
                           </li>
                           <li>
                             <a href="<?php echo base_url(); ?>Newsletter/viewSubscriber"><i class="material-icons">view_list</i><span>View Subscriber</span></a>
-                          </li>
+                          </li>-->
                         </ul>
                     </li>       
                 </ul>

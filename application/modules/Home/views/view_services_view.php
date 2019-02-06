@@ -28,6 +28,8 @@
                   <th>Serial No</th>
                   <th>Service Heading</th>
                   <th>Service Detail</th>
+                  <th></th>
+                  <th></th>
                 </tr>
             </thead>
             <tbody>

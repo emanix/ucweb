@@ -27,26 +27,32 @@
                 <form method="POST" class="form_vertical" action = "<?php echo base_url(); ?>Login/change_password">
                     <div class="row clearfix">
                         <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
-                            <div class="form-group form-float">
+                            <div class="input-group">
+                                <span class="input-group-addon">
+                                    <i class="material-icons">person</i>
+                                </span>
                                 <div class="form-line">
-                                    <input type="password" name="old_pass" class="form-control">
-                                    <label class="form-label">Old Password</label>
+                                    <input type="text" class="form-control date" name="old_pass" placeholder="Old Password">
                                 </div>
                             </div>
                         </div>
                         <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
-                            <div class="form-group form-float">
+                            <div class="input-group">
+                                <span class="input-group-addon">
+                                    <i class="material-icons">key</i>
+                                </span>
                                 <div class="form-line">
-                                    <input type="password" name="new_pass" class="form-control">
-                                    <label class="form-label">New Password</label>
+                                    <input type="text" class="form-control date" name="new_pass" placeholder="New Password">
                                 </div>
                             </div>
                         </div>
                         <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
-                            <div class="form-group form-float">
+                            <div class="input-group">
+                                <span class="input-group-addon">
+                                    <i class="material-icons">key</i>
+                                </span>
                                 <div class="form-line">
-                                    <input type="password" name="con_pass" class="form-control">
-                                    <label class="form-label">Confirm Password</label>
+                                    <input type="text" class="form-control date" name="con_pass" placeholder="Confirm Password">
                                 </div>
                             </div>
                         </div>

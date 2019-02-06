@@ -98,26 +98,41 @@ class Users extends MY_Controller{
 
     function subscribeNews(){
         if($this->input->post()){
-            $data['email'] = $this->input->post('Email');
+            //$data['email'] = $this->input->post('Email');
             $email = $this->input->post('Email');
-            $id = $this->M_SignUp->insertSubscribe($data);
+            //$id = $this->M_SignUp->insertSubscribe($data);
 
-            $link = "http://www.unitychoraleng.org/Users/unsubscribeNews/".$id;
+            //$link = "http://www.unitychoraleng.org/Users/unsubscribeNews/".$id;
+			$link = "http://www.unitychoraleng.org/Users/activate_subscribe/".$email;
+			
+			$config = Array(
+			'protocol' => 'smtp',
+			  'smtp_host' => 'smtp.mailtrap.io',
+			  'smtp_port' => 2525,
+			  'smtp_user' => 'c69db7c8bb49ba',
+			  'smtp_pass' => '60779f5cfa94e3',
+			  'crlf' => "\r\n",
+			  'newline' => "\r\n"
+		);
+		
+		$this->email->initialize($config);
             
-            /*$message = "
+            $message = "
           <html>
           <head>
           <title></title>
           </head>
           <body>
-          <h3>Subscription successful</h3>
-          <p>You have successfully subscribed for Unity Chorale's news letters, thank you for subscribing for our letters.</p>
-          <p>If you did not authorise this action, click <a target='__blank' href='{$link}'>here</a> to unsubscribe.</p>
+          <h3>Activate Subscription</h3>
+          <p>Your subscription for Unity Chorale's news letter is in progress.</p>
+          <p>Kindly click <a target='__blank' href='{$link}'>here</a> to activate you subscription.</p>
           </body>
           </html>
         ";
 
         $this->load->library('email');
+		
+		
 
         $this->email->mailtype('html');
         $this->email->from('info@unitychoraleng.org', 'Unity Chorale');
@@ -127,12 +142,26 @@ class Users extends MY_Controller{
         $this->email->message($message);
         $this->email->set_mailtype("html");
 
-        $this->email->send();*/
+        $this->email->send();
 
-        $this->session->set_flashdata('success', 'You have successfully subscribed for news letters');
+        $this->session->set_flashdata('success', 'Your subscription is in progress, check you mail to activate subscription');
         redirect(base_url().'SignUp/signUpFeedback');
         }
     }
+	
+	function activate_subscribe($email){
+		$data['email'] = $email;
+		$s_email = $this->M_SignUp->getSubscriberByemail($email);
+		if($s_email != ""){
+			
+			$this->session->set_flashdata('success', 'You already have an active subscription');
+			redirect(base_url().'SignUp/signUpFeedback');
+		}else{
+			$id = $this->M_SignUp->insertSubscribe($data);
+			$this->session->set_flashdata('success', 'You have successfully subscribed for news letters');
+			redirect(base_url().'SignUp/signUpFeedback');
+		}
+	}
 
     function unsubscribeNews($id){
         $this->load->model(array('M_SignUp'));

@@ -16,7 +16,7 @@ class M_Login extends CI_Model
     }
 
     function get_userid($email){
-        $this->db->select('ID');
+        $this->db->select('login_id');
         $this->db->from('adminlogintb');
         $this->db->where('username', $email);
         $query = $this->db->get();
@@ -25,7 +25,7 @@ class M_Login extends CI_Model
     }
 
     function confirm_users_password($userid, $password){
-        $query = $this->db->query('select * from adminlogintb where ID =  "'.$userid.'"  and password =  "'.$password.'" ');
+        $query = $this->db->query('select * from adminlogintb where login_id =  "'.$userid.'"  and password =  "'.$password.'" ');
         /*$this->db->select('password');
         $this->db->from('login');
         $this->db->where('password', $password);
@@ -46,7 +46,7 @@ class M_Login extends CI_Model
 
         return $this->db->set();*/
         $this->db->set('password', sha1($this->input->post('new_pass', TRUE)));
-        $this->db->where('ID', $this->session->userdata('user_id'));
+        $this->db->where('login_id', $this->session->userdata('user_id'));
         
         return $this->db->update('adminlogintb');
         

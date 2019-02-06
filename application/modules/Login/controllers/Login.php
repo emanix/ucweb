@@ -4,20 +4,34 @@ class Login extends MY_Controller{
     function __construct()
     {
         parent::__construct();
-        $this->load->module(['Templates']);
-        $this->load->model("M_Login");
+        $this->load->module(['Templates', 'ContactUs', 'SignUp']);
+        $this->load->model(['M_Login', 'M_Admin']);
     }
 
-    function index(){
+    function index($data = NULL){
 
         $this->session->sess_destroy();
-        //$data['role'] = $this->roles->create_roles_select();
-        $this->templates->load_login_template();
+        $connect = $this->M_Admin->getConnect();
+
+        foreach ($connect as $key => $value) {
+            $data['phone1'] = $value->phone1;
+            $data['phone2'] = $value->phone2;
+            $data['email'] = $value->email;
+            $data['facebook'] = $value->facebook;
+            //$data['instagram'] = $value->instagram;
+            $data['googleplus'] = $value->googleplus;
+            $data['twitter'] = $value->twitter;
+        }
+        $data['header_view'] = 'Templates/header_o';
+        $data['footer_view'] = 'Templates/footer';
+        $this->templates->call_login_template($data);
     }
 
-     function sign_err(){
+     function sign_err($data = NULL){
 
-        $this->templates->load_login_template();
+        $data['header_view'] = 'Templates/header_o';
+        $data['footer_view'] = 'Templates/footer';
+        $this->templates->call_login_template($data);
     }
 
     //Admin login
@@ -51,12 +65,12 @@ class Login extends MY_Controller{
 
                         if ($value->role == 'admin' || $value->role == 'pro') {
                             $this->session->set_userdata(array(
-                            'user_id' => $value->ID,
+                            'user_id' => $value->login_id,
                             'user_role' => $value->role,
                             'username' => $value->username,
                             'name' => $value->name,
                             'loggedin' => 1
-                            ));
+                            )); 
                             redirect(base_url() . 'Admin');
                         } // Redirect to Users page
                         elseif ($value->role == 'Assistant') {
@@ -118,6 +132,8 @@ class Login extends MY_Controller{
 
         $this->load->module("Templates");
         $data['student_records'] = 'Students Management';
+        $data['unread'] = count($this->contactus->unreadMessages());
+        $data['signups'] = count($this->signup->countSignups());
         $data['optional_description'] = 'Please use a personal password you can remember';
         $data['page_title'] = 'Change Password';
         $data['content_view'] = 'Login/change_password_view';
@@ -127,7 +143,7 @@ class Login extends MY_Controller{
 
     function sign_out(){
         $this->session->sess_destroy();
-        redirect(base_url().'Login');
+        redirect(base_url().'Home');
     }
 
     //Users login

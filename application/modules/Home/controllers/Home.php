@@ -6,11 +6,12 @@ class Home extends MY_Controller{
     {
         parent::__construct();
         $this->load->module(['Templates', 'ContactUs', 'SignUp']);
-        $this->load->model(['M_Home', 'M_Events', 'M_Admin']);
+        $this->load->model(['M_Home', 'M_Admin']);
         
     }
 
     function index($data = NULL){
+      $this->session->set_userdata('Home');
       $connect = $this->M_Admin->getConnect();
 
         foreach ($connect as $key => $value) {
@@ -18,22 +19,25 @@ class Home extends MY_Controller{
             $data['phone2'] = $value->phone2;
             $data['email'] = $value->email;
             $data['facebook'] = $value->facebook;
-            $data['instagram'] = $value->instagram;
+            //$data['instagram'] = $value->instagram;
             $data['googleplus'] = $value->googleplus;
             $data['twitter'] = $value->twitter;
         }
 
-      $events = $this->M_Events->getEvents();
+      /*$events = $this->M_Events->getEvents();
       foreach ($events as $key => $value) {
         if($value->event_date < date("Y-m-d")){
           $this->M_Events->deleteEvent($value->eventid);
         }
-      }
+      }*/
 
-      $data['bannerSlider'] = $this->bannerSlider();
-      $data['events_table'] = $this->eventsTable();
+      //$data['bannerSlider'] = $this->bannerSlider();
+      //$data['events_table'] = $this->eventsTable();
       $data['welcome_message'] = $this->welcomeAddress();
+      $data['services_head'] = $this->Service_head();
       $data['services'] = $this->Services();
+      $data['header_view'] = 'Templates/header_o';
+      $data['footer_view'] = 'Templates/footer';
       $this->templates->call_home_template($data);
     }
 
@@ -122,7 +126,8 @@ class Home extends MY_Controller{
           $service_table .="<td>{$incrementer}</td>";
           $service_table .="<td>{$value->service_head}</td>";
           $service_table .="<td>{$value->service}</td>";
-          $service_table .="<td><a href='".base_url()."Home/editService/{$value->service_id}'><i>Edit</i></a></td>";
+          $service_table .="<td><a href='".base_url()."Home/editService/{$value->service_id}'><div class='demo-google-material-icon'> <i class='material-icons'>edit</i></div></a></td>";
+          $service_table .="<td><a href='".base_url()."Services/deleteService/{$value->service_id}'><div class='demo-google-material-icon'> <i class='material-icons'>delete</i></div></a></td>";
           $incrementer++;
         }
       }
@@ -162,20 +167,81 @@ class Home extends MY_Controller{
       $this->templates->call_admin_template($data);
     }
 
+    function trim_text($input, $length, $ellipses = true, $strip_html = true) {
+      //strip tags, if desired
+      if ($strip_html) {
+          $input = strip_tags($input);
+      }
+    
+      //no need to trim, already shorter than trim length
+      if (strlen($input) <= $length) {
+          return $input;
+      }
+    
+      //find last space within length
+      $last_space = strrpos(substr($input, 0, $length), ' ');
+      $trimmed_text = substr($input, 0, $last_space);
+    
+      //add ellipses (...)
+      if ($ellipses) {
+          $trimmed_text .= '...';
+      }
+    
+      return $trimmed_text;
+    }
+
     function Services(){
       $service = $this->M_Home->getServices();
       $services = "";
+      
       if(count($service) > 0){
-        $incrementer = 1;
+        $incrementer = 2;
         foreach ($service as $key => $value) {
-          $services .= "<div class='col-md-4 service-box'>";
-          $services .= "<figure class='icon'>";
-          $services .= "<span>$incrementer</span>";
-          $services .= "</figure>";
-          $services .= "<h5>{$value->service_head}</h5>";
-          $services .= "<p>{$value->service}</p>";
-          $services .= "</div>";
+          $description = $this->trim_text($value->service,110);
+          $services .= "<div class='col-lg-4 services-agile-1 my-lg-0 my-5'>";
+          $services .= "<div class='row wthree_agile_us'>";
+          $services .= "<div class='col-lg-3 col-md-2 col-3  agile-why-text'>";
+          if ($value->service_id == 2){
+            $services .= "<div class='wthree_features_grid text-center p-3 border rounded'>";
+            $services .= "<i class='fas fa-book'></i></div></div>";
+            $services .= "<div class='col-9 agile-why-text-2 about_right'>";
+            $services .= "<h4 class='text-capitalize text-white font-weight-bold mb-3'>{$value->service_head}</h4>";
+            $services .= "<p>{$description}</p>";
+            $services .= "<a class='btn mt-3 service-button p-0' href='".base_url()."Services/service_description/{$value->service_id}' role='button'>Read More<i class='fas fa-long-arrow-alt-right ml-1'></i>";
+            $services .= "</a></div></div></div>";
+          }elseif ($value->service_id == 3){
+            $services .= "<div class='wthree_features_grid text-center p-3 border rounded'>";
+            $services .= "<i class='fas fa-graduation-cap'></i></div></div>";
+            $services .= "<div class='col-9 agile-why-text-2 about_right'>";
+            $services .= "<h4 class='text-capitalize text-white font-weight-bold mb-3'>{$value->service_head}</h4>";
+            $services .= "<p>{$description}</p>";
+            $services .= "<a class='btn mt-3 service-button p-0' href='".base_url()."Services/service_description/{$value->service_id}' role='button'>Read More<i class='fas fa-long-arrow-alt-right ml-1'></i>";
+            $services .= "</a></div></div></div>";
+          }elseif($value->service_id == 4){
+            $services .= "<div class='wthree_features_grid text-center p-3 border rounded'>";
+            $services .= "<i class='fas fa-users'></i></div></div>";
+            $services .= "<div class='col-9 agile-why-text-2 about_right'>";
+            $services .= "<h4 class='text-capitalize text-white font-weight-bold mb-3'>{$value->service_head}</h4>";
+            $services .= "<p>{$description}</p>";
+            $services .= "<a class='btn mt-3 service-button p-0' href='".base_url()."Services/service_description/{$value->service_id}' role='button'>Read More<i class='fas fa-long-arrow-alt-right ml-1'></i>";
+            $services .= "</a></div></div></div>";
+          }
+          
           $incrementer++;
+        }
+      }
+      return $services;
+    }
+
+    function Service_head(){
+      $service = $this->M_Home->getServices();
+      $services = "";
+      if(count($service) > 0){
+        //$incrementer = 1;
+        foreach ($service as $key => $value) {
+          $services .= "<li class='mb-2'><i class='fas fa-check mr-3'></i><strong>{$value->service_head}</strong></li>";
+          
+          //$incrementer++;
         }
       }
       return $services;
