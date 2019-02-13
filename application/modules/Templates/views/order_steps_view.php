@@ -15,7 +15,7 @@
 						<div class="detail-bottom">
 							<h4 class="my-3">
 								<p class="text-dark">
-									Make sure you prepare the document that you wish to be evaluated in a portable document format (pdf)
+									Make sure you prepare the document that you wish to be evaluated/translated in a portable document format (pdf)
 								</p>
 							</h4>
 						</div>
@@ -39,42 +39,14 @@
 				</div>
 				<div class="col-md-4 news-grid">
 					<a href="blog.html">
-						<img src="images/n3.jpg" class="img-fluid" alt="" />
+						<img src="<?php echo base_url(); ?>asset/cweb/images/receive.jpg" class="img-fluid" alt="" />
 					</a>
 					<div class="news-text">
-						<div class="news-events-agile event-colo3 py-2 px-3">
-							<h5 class="float-left">
-								<a href="blog.html" class="text-white"></a>
-							</h5>
-							<div class="post-img float-right">
-								<ul>
-									<li>
-										<a href="#">
-											<i class="far fa-comments text-white"></i>
-										</a>
-									</li>
-									<li class="mx-3">
-										<a href="#">
-											<i class="far fa-heart text-white"></i>
-										</a>
-									</li>
-									<li>
-										<a href="#">
-											<i class="fas fa-share text-white"></i>
-										</a>
-									</li>
-								</ul>
-							</div>
-							<div class="clearfix"></div>
-						</div>
+						
 						<div class="detail-bottom">
-							<h6 class="my-3">
-								<a href="blog.html" class="text-dark">
-									Eiusmod tempor incididunt ut labore sed do eiusmod
-								</a>
-							</h6>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore sed do eiusmod
-								tempor incididunt ut labore</p>
+							
+							<br>
+							<p class="text-dark">You will receive you processed document after the processing has been completed.</p>
 						</div>
 					</div>
 				</div>

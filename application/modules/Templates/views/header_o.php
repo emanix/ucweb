@@ -139,7 +139,7 @@
 								<span class="sr-only">(current)</span>
 							<?php } ?></a>
 								<a class="dropdown-item" href="<?php echo base_url(); ?>Services/display_prices">Pricing</a>
-								<a class="dropdown-item" href="#">Steps to Order</a>
+								<a class="dropdown-item" href="<?php echo base_url(); ?>Services/place_order">Steps to Order</a>
 							</div>
 						</li>
 						<li class="nav-item dropdown">
@@ -151,7 +151,7 @@
 								<span class="sr-only">(current)</span>
 							<?php } ?></a>
 								<a class="dropdown-item" href="<?php echo base_url(); ?>Services/doc_translation_prices/">Pricing</a>
-								<a class="dropdown-item" href="login.html">Steps to Order</a>
+								<a class="dropdown-item" href="<?php echo base_url(); ?>Services/place_order">Steps to Order</a>
 							</div>
 						</li>
 						<li class="nav-item dropdown">
@@ -161,7 +161,7 @@
 							<div class="dropdown-menu">
 								<a class="dropdown-item" href="<?php echo base_url(); ?>Services/training_services/">Services</a>
 								<a class="dropdown-item" href="<?php echo base_url(); ?>Services/doc_translation_prices/">Pricing</a>
-								<a class="dropdown-item" href="login.html">Steps to Order</a>
+								<a class="dropdown-item" href="<?php echo base_url(); ?>Services/place_order">Steps to Order</a>
 							</div>
 						</li>
 						<li class="nav-item">
