@@ -97,4 +97,12 @@ class Templates extends MY_Controller{
 
         $this->load->view('users_view', $data);
     }
+
+    function get_started($data = NULL){
+        $this->load->view('get_started_view', $data);
+    }
+
+    function complete_orders($data = NULL){
+        $this->load->view('complete_order_view', $data);
+    }
  }

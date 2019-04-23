@@ -731,5 +731,98 @@ class Services extends MY_Controller{
       	$data['footer_view'] = 'Templates/footer';
       	//$data['categories'] = $this->view_stcategory();
       	$this->templates->call_order_template($data);
-    }
+	}
+	
+	function get_started(){
+		$connect = $this->M_Admin->getConnect();
+
+        foreach ($connect as $key => $value) {
+            $data['phone1'] = $value->phone1;
+            $data['phone2'] = $value->phone2;
+            $data['email'] = $value->email;
+            $data['facebook'] = $value->facebook;
+            //$data['instagram'] = $value->instagram;
+            $data['googleplus'] = $value->googleplus;
+            $data['twitter'] = $value->twitter;
+        }
+    	//$data['page_title'] = 'Document Translation Pricing';
+    	$data['header_view'] = 'Templates/header_p';
+      	$data['footer_view'] = 'Templates/footer';
+      	//$data['categories'] = $this->view_stcategory();
+      	$this->templates->get_started($data);
+	}
+
+	function confirm_email(){
+        if($this->input->post()){
+            //$data['email'] = $this->input->post('Email');
+            $email = base64_encode($this->input->post('email'));
+            //$id = $this->M_SignUp->insertSubscribe($data);
+
+            //$link = "http://www.unitychoraleng.org/Users/unsubscribeNews/".$id;
+			$link = "http://www.iitas.test/Services/complete_order/".$email;
+			
+			$config = Array(
+			'protocol' => 'smtp',
+			  'smtp_host' => 'smtp.mailtrap.io',
+			  'smtp_port' => 2525,
+			  'smtp_user' => 'c69db7c8bb49ba',
+			  'smtp_pass' => '60779f5cfa94e3',
+			  'crlf' => "\r\n",
+			  'newline' => "\r\n"
+		);
+		$this->load->library('email');
+		$this->email->initialize($config);
+            
+            $message = "
+          <html>
+          <head>
+          <title></title>
+          </head>
+          <body>
+          <h3>Confirm Email</h3>
+          <p>To complete your order with IITAS,</p>
+          <p>Kindly click <a target='__blank' href='{$link}'>here</a> to confirm your email address <br> and continue with your order.</p>
+          </body>
+          </html>
+        ";
+		
+
+        //$this->email->mailtype('html');
+        $this->email->from('info@iitas.org', 'IITAS');
+        $this->email->to($email);
+
+        $this->email->subject('Email Confirmation');
+        $this->email->message($message);
+        $this->email->set_mailtype("html");
+
+        $this->email->send();
+
+        $this->session->set_flashdata('success', 'Your order is in progress, check you mail for confirmation');
+		//redirect(base_url().'SignUp/signUpFeedback');
+		print_r($this->session->flashdata('success')); die;
+        }
+	}
+	
+	function complete_order($dat){
+
+		$connect = $this->M_Admin->getConnect();
+
+        foreach ($connect as $key => $value) {
+            $data['phone1'] = $value->phone1;
+            $data['phone2'] = $value->phone2;
+            $data['email'] = $value->email;
+            $data['facebook'] = $value->facebook;
+            //$data['instagram'] = $value->instagram;
+            $data['googleplus'] = $value->googleplus;
+            $data['twitter'] = $value->twitter;
+		}
+
+		$data['mail'] = base64_decode($dat);
+		
+    	//$data['page_title'] = 'Document Translation Pricing';
+    	$data['header_view'] = 'Templates/header_p';
+      	$data['footer_view'] = 'Templates/footer';
+      	//$data['categories'] = $this->view_stcategory();
+      	$this->templates->complete_orders($data);
+	}
 }

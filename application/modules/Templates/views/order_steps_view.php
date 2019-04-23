@@ -33,7 +33,7 @@
 									To successfully upload your document, kindly register your document by clicking the continue button below and follow other instructions.
 								</p>
 							</h4>
-							<a href="blog.html"><button style="color: green;">Continue</button></a>
+							<a href="<?php echo base_url(); ?>Services/get_started"><button class="btn btn-primary">Continue</button></a>
 						</div>
 					</div>
 				</div>
@@ -53,5 +53,5 @@
 			</div>
 		</div>
 	</div>
-	<!-- //news -->
-	<?php $this->load->view($footer_view); ?>
+<!-- //news -->
+<?php $this->load->view($footer_view); ?>
